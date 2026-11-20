@@ -1,0 +1,119 @@
+
+{
+  "entities": {
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a digital product available for graphic design and video editing.",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "coverImageUrl": { "type": "string", "format": "uri" },
+        "videoDemoUrl": { "type": "string", "format": "uri" },
+        "downloadUrl": { "type": "string", "format": "uri" },
+        "isPremium": { "type": "boolean" },
+        "compatibleSoftware": { "type": "array", "items": { "type": "string" } },
+        "publishDate": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "coverImageUrl", "videoDemoUrl", "downloadUrl", "isPremium", "compatibleSoftware"]
+    },
+    "Venta": {
+      "title": "Venta",
+      "type": "object",
+      "description": "Registro de una venta realizada en el negocio Express & Lei.",
+      "properties": {
+        "id": { "type": "string" },
+        "productName": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "clientName": { "type": "string" },
+        "paymentType": { "type": "string", "enum": ["contado", "cuotas"] },
+        "wholesalePrice": { "type": "number" },
+        "customerPrice": { "type": "number" },
+        "profit": { "type": "number" },
+        "amountPaid": { "type": "number" },
+        "debt": { "type": "number" },
+        "paymentDates": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["productName", "date", "clientName", "paymentType", "wholesalePrice", "customerPrice"]
+    },
+    "VentaMayor": {
+      "title": "VentaMayor",
+      "type": "object",
+      "description": "Registro de una venta al mayor donde se especifica la ganancia directa.",
+      "properties": {
+        "id": { "type": "string" },
+        "clientName": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "totalGain": { "type": "number" },
+        "amountPaid": { "type": "number" },
+        "debt": { "type": "number" },
+        "items": { 
+          "type": "array", 
+          "items": { 
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "gain": { "type": "number" }
+            }
+          } 
+        }
+      },
+      "required": ["clientName", "date", "totalGain", "amountPaid"]
+    },
+    "Pedido": {
+      "title": "Pedido",
+      "type": "object",
+      "description": "Registro de un pedido pendiente por entregar.",
+      "properties": {
+        "id": { "type": "string" },
+        "productName": { "type": "string" },
+        "clientName": { "type": "string" },
+        "location": { "type": "string" },
+        "deliveryDate": { "type": "string" },
+        "investmentRequired": { "type": "number" },
+        "status": { "type": "string", "enum": ["pendiente", "entregado"] },
+        "paymentMethod": { "type": "string", "enum": ["efectivo", "nequi", "daviplata", "transferencia", "otro"] }
+      },
+      "required": ["productName", "clientName", "location", "deliveryDate", "investmentRequired", "status", "paymentMethod"]
+    },
+    "HomeItem": {
+      "title": "HomeItem",
+      "type": "object",
+      "description": "Objeto del hogar y su ubicación.",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "location": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "location"]
+    }
+  },
+  "auth": {
+    "providers": ["password", "anonymous"]
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "#/backend/entities/Product",
+      "description": "Digital products collection."
+    },
+    "/ventas/{ventaId}": {
+      "schema": "#/backend/entities/Venta",
+      "description": "Colección de ventas del negocio Express & Lei."
+    },
+    "/ventas_mayor/{ventaMayorId}": {
+      "schema": "#/backend/entities/VentaMayor",
+      "description": "Colección de ventas al mayor con ganancias compartidas."
+    },
+    "/pedidos/{pedidoId}": {
+      "schema": "#/backend/entities/Pedido",
+      "description": "Colección de pedidos pendientes por entregar."
+    },
+    "/home_items/{itemId}": {
+      "schema": "#/backend/entities/HomeItem",
+      "description": "Colección de objetos del hogar y sus ubicaciones."
+    }
+  }
+}

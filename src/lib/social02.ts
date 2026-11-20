@@ -1,0 +1,143 @@
+
+import type { Product } from '@/types';
+
+// 9 productos: 1 gratuito (10%), 8 exclusivos (90%)
+const freeIndex = 4; // "15 Años Premiere" será el gratuito
+
+export const social02: Product[] = [
+  {
+    id: 12001,
+    title: 'Galería de Recuerdos Fotográficos',
+    slug: 'galeria-recuerdos-fotograficos-ae',
+    coverImage: 'https://motionarray.imgix.net/preview-1072684-6CjbONPO4r-high_0008.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-1072684-t8PrG8T707CDKTav-original_1080p_1710970431.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1eRsGQAt-0gzZnW4nx-nMXen2wJ-l0f1J/view?usp=drivesdk',
+    categories: ['after-effects', 'eventos-sociales', 'bodas'],
+    description: 'Una plantilla de After Effects de aspecto hermoso con suaves filtros de luz, animaciones de texto sencillas y efectos de transición suaves. Contiene 21 marcadores de posición para imágenes/video y 23 marcadores de posición para texto. Puedes usarla para mostrar tus eventos vitales, ocasiones especiales, momentos románticos, recuerdos, fotos de amigos y familia. Descárgala hoy. Disponible en HD. Se incluye un tutorial en vídeo.',
+    compatibility: 'After Effects CC 2018',
+    resolution: '1920x1080 (HD)',
+    fileSize: '7.01MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12002,
+    title: 'Grandes Momentos',
+    slug: 'grandes-momentos-pr-social',
+    coverImage: 'https://motionarray.imgix.net/preview-968353-keHa6bJRfs-high_0006.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-968353-fQ9avh9N8xlqQ3vs-original_1080p_1711019752.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1Fy6A2Qa8eOANkVHWa310SZWJOQlCUFte/view?usp=drivesdk',
+    categories: ['premiere', 'eventos-sociales', 'bodas'],
+    description: 'Una plantilla de Motion Graphics que utiliza una gran variedad de efectos para revelar y realzar tu contenido multimedia. Contiene 18 marcadores de posición para medios y 4 capas de texto editables. Puedes usarla para mostrar tu boda, aniversarios, recuerdos, momentos románticos, ocasiones especiales, viajes, vacaciones, fotos de amigos y familia. Descarga este MOGRT hoy.',
+    compatibility: 'Premiere CC 2021',
+    resolution: '3840x2160 (4K)',
+    fileSize: '75.17MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12003,
+    title: 'Apertura Cinemática Muro de Historia',
+    slug: 'apertura-cinematica-muro-historia-dr',
+    coverImage: 'https://motionarray.imgix.net/preview-976765-G6UrijrCyV-high_0016.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-976765-FoKstTh99NgwNHx0-original_1080p_1711017914.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/12Y0rp6vaVmXLd4HNs-BSooEVooAe_ACP/view?usp=drivesdk',
+    categories: ['davinci-resolve', 'eventos-sociales', 'intros', 'bodas'],
+    description: 'Una plantilla cinematográfica animada para DaVinci Resolve. Presenta una composición de una vieja pared de madera con fotos colgadas de cuerdas y flores. Contiene 10 marcadores de posición para medios y 1 marcador de posición para texto. Una forma llamativa de mostrar tus recuerdos, momentos románticos, ocasiones especiales, fotos de amigos y familia. Impresiona a tu audiencia con esta plantilla de aspecto antiguo y elegantemente animada. Sin complementos.',
+    compatibility: 'Compatible desde Resolve 16.2',
+    resolution: '1920x1080 (HD)',
+    fileSize: '210.09MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12004,
+    title: 'Presentación de Cumpleaños',
+    slug: 'presentacion-cumpleanos-ae-fun',
+    coverImage: 'https://motionarray.imgix.net/preview-146085-vP2yHSmW5M-high_0000.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-146085-utwizCCL6s9o0ztP-original_1080p_1711309388.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1hYymMW--wZUou8cI4nmzzh2ebX73peuO/view?usp=drivesdk',
+    categories: ['after-effects', 'eventos-sociales'],
+    description: 'Una plantilla de After Effects llena de diversión con elementos de cumpleaños de aspecto bonito y animados dinámicamente, animaciones de texto sencillas y efectos de transición suaves. Esta plantilla contiene 15 marcadores de posición para imágenes/video y 8 capas de texto editables. Es muy fácil de usar e ideal para principiantes en AE. Una forma maravillosa de mostrar tus ocasiones especiales, recuerdos, fiestas de cumpleaños infantiles, fotos de amigos y familia. Impresiona a tu audiencia con esta plantilla AE limpia, colorida y animada creativamente. Sin complementos.',
+    compatibility: 'After Effects CC 2015',
+    resolution: '1920x1080 (HD)',
+    fileSize: '17.15MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12005,
+    title: '15 Años Premiere',
+    slug: '15-anos-premiere-template',
+    coverImage: 'https://motionarray.imgix.net/preview-258927-mbzm3Cqjk9-high_0016.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-258927-WKYMf8mORDXbm1qz-original_1080p_1711304800.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1hTcIBqu-niuEa9_Tuzji4WZAHPXWWBOl/view?usp=drivesdk',
+    categories: ['premiere', 'eventos-sociales', '15-anos'],
+    description: 'Una plantilla espectacular para Premiere Pro con partículas y elementos animados hermosamente que realzan tu contenido multimedia. Es muy fácil de usar: 12 marcadores de posición para medios, 2 capas de texto editables y un marcador para logotipo o texto final. Una forma maravillosa de mostrar tu boda, aniversarios, ocasiones especiales, momentos románticos, recuerdos, fotos de amigos y familia. Impresiona a tu audiencia con esta plantilla PP animada creativamente.',
+    compatibility: 'Premiere CC 2017',
+    resolution: '1920x1080 (HD)',
+    fileSize: '61.28MB',
+    requiresPlugins: false,
+    isExclusive: false
+  },
+  {
+    id: 12006,
+    title: 'Galería de Recuerdos 15 años',
+    slug: 'galeria-recuerdos-15-anos-dr',
+    coverImage: 'https://motionarray.imgix.net/preview-1012065-vUxfoHJ0S7-high_0016.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-1012065-D9EXW93eFH3Rt0lD-original_1080p_1710979269.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1tWRzV17aEpxqT8UCqZ6BgHza3gWsqvDH/view?usp=drivesdk',
+    categories: ['davinci-resolve', 'eventos-sociales', '15-anos'],
+    description: 'Una plantilla cinematográfica animada para DaVinci Resolve. Presenta una composición con hojas doradas de otoño y marcadores de imagen para mostrar tus fotos y títulos. Contiene 28 marcadores de posición para medios y 11 marcadores de posición para texto. Una forma llamativa de mostrar tus recuerdos, momentos románticos, ocasiones especiales, fotos de amigos y familia. Impresiona a tu audiencia con esta plantilla de aspecto antiguo y elegantemente animada. Sin complementos.',
+    compatibility: 'Compatible desde Resolve 16.2',
+    resolution: '1920x1080 (HD)',
+    fileSize: '255.56MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12007,
+    title: 'Presentación de 15 años (Cuenta Tu Historia)',
+    slug: 'presentacion-15-anos-cuenta-historia-ae',
+    coverImage: 'https://motionarray.imgix.net/preview-214806-N706WdRXY3-high_0016.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-214806-m8GtdefaAnLrb6PI-original_1080p_1711306552.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1Wn2BD5RnlYUDD1y7ex0JrW1p-zTBB2hK/view?usp=drivesdk',
+    categories: ['after-effects', 'eventos-sociales', '15-anos'],
+    description: 'Una hermosa plantilla de After Effects con elementos de acuarela que puede ser adecuada para cualquier ocasión. Gracias a su estructura modular y 6 encantadoras transiciones florales, es muy fácil de editar cambiando el orden y duración de las escenas como desees. El proyecto contiene una versión horizontal con 36 marcadores de medios y una versión vertical con 19 marcadores de medios. También tiene muchas capas de texto editables. Perfecta para tu boda, aniversarios, momentos románticos, historias de amor, ocasiones especiales, fotos de amigos y familia. Impresiona a tu audiencia con esta plantilla AE brillante y animada dinámicamente. Sin complementos.',
+    compatibility: 'After Effects CC 2017',
+    resolution: '1920x1080 (HD)',
+    fileSize: '244.07MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12008,
+    title: 'Recuerdos Vintage',
+    slug: 'recuerdos-vintage-pr-social',
+    coverImage: 'https://motionarray.imgix.net/preview-62501nU8pyBMRWQ_0015.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-62501-W1fkb04kwRn35CEs-original_1080p_1711166311.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1CD07l4bNdwfUNN8B-JBqTwMLJ-KNAGjI/view?usp=drivesdk',
+    categories: ['premiere', 'eventos-sociales', 'bodas'],
+    description: 'Una plantilla de estilo vintage. Es una forma genial de mostrar tus fotos, vídeos o presentar tu última aventura de viaje, recuerdos de boda, momentos románticos, ocasiones especiales, fotos de amigos y familia, y mucho más. Puede ser un gran regalo para San Valentín. La personalización es muy sencilla y solo requiere unos pocos clics para insertar tu contenido multimedia y texto.',
+    compatibility: 'Premiere CC 2018',
+    resolution: '1920x1080 (HD)',
+    fileSize: '105.67MB',
+    requiresPlugins: false,
+    isExclusive: true
+  },
+  {
+    id: 12009,
+    title: 'Presentación Elegante',
+    slug: 'presentacion-elegante-dr-social',
+    coverImage: 'https://motionarray.imgix.net/preview-818673-z2t6DeeHdi-high_0000.jpg?w=660&q=60&fit=max&auto=format',
+    videoUrl: 'https://media.fredegapro.com/01/videos/social1/PRD-818673-w5KdiuZbUSavY5oy-original_1080p_1711275828.mp4',
+    downloadUrl: 'https://drive.google.com/file/d/1QIRjsM5n-dA6wIYU9IhWRdJlWlv3RZTe/view?usp=drivesdk',
+    categories: ['davinci-resolve', 'eventos-sociales', 'intros', 'bodas'],
+    description: 'Presentación de diapositivas cinematográfica perfecta para tu opener, programa de TV, presentación de fotos/vídeos o cualquier apertura de medios, incluso eventos especiales. Puedes usar imágenes en lugar de vídeos. Proyecto muy simple y bien organizado. Puedes cambiar los colores fácilmente en un solo paso. Cambia el texto, coloca tus medios, audio y renderiza. Proyecto de renderizado rápido. Esta plantilla de DaVinci Resolve es adecuada para presentar imágenes o vídeos familiares, así como cualquier material de negocios. Este proyecto es simple y contiene una variedad de diseños de diapositivas hermosos y también se puede usar para presentar cualquier ocasión: galería de vacaciones, álbumes de fotos, aniversarios, cumpleaños, amigos o cualquier otro evento especial.',
+    compatibility: 'Compatible desde Resolve 16.2',
+    resolution: '1920x1080 (HD)',
+    fileSize: 'Personalizable',
+    requiresPlugins: false,
+    isExclusive: true
+  }
+];

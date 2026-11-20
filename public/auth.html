@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Acción de autenticación</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f2f5;
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+  <script>
+    function handleAction() {
+      const url = new URL(window.location.href);
+      const params = url.searchParams;
+      const mode = params.get('mode');
+      const oobCode = params.get('oobCode');
+      const continueUrl = params.get('continueUrl');
+      const lang = params.get('lang') || 'es';
+
+      // La URL base de tu aplicación Next.js
+      const appBaseUrl = 'https://9000-firebase-studio-1758204696522.cluster-zhw3w37rxzgkutusbbhib6qhra.cloudworkstations.dev/';
+      
+      let redirectUrl = appBaseUrl;
+
+      switch (mode) {
+        case 'resetPassword':
+          // Redirige a la página de acción de tu app con los parámetros
+          redirectUrl = `${appBaseUrl}auth/action?mode=${mode}&oobCode=${oobCode}`;
+          break;
+        case 'verifyEmail':
+           // Redirige a la página de acción de tu app con los parámetros
+          redirectUrl = `${appBaseUrl}auth/action?mode=${mode}&oobCode=${oobCode}`;
+          break;
+        default:
+          // Redirige a la página de inicio por defecto
+          redirectUrl = appBaseUrl;
+      }
+      
+      // Redirige la página completa
+      window.location.replace(redirectUrl);
+    }
+    window.onload = handleAction;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <p>Redirigiendo a la aplicación...</p>
+    <p>Por favor, espera un momento.</p>
+  </div>
+</body>
+</html>

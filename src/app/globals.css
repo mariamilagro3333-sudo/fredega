@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 60% 5%; /* #050A14 */
+    --foreground: 0 0% 98%;
+    --card: 220 60% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 60% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 197 76% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 30 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 15%;
+    --input: 220 20% 18%;
+    --ring: 197 76% 53%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 60% 5%;
+    --foreground: 0 0% 98%;
+    --card: 220 60% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 60% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 197 76% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 20% 10%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 30 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 197 76% 53%;
+  }
+
+  * {
+    @apply border-border font-body;
+  }
+  
+  body {
+    @apply bg-background text-foreground text-[1.05rem];
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline font-bold;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .titulo-principal {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .subtitulo-nombre {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .descripcion-texto {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #B0B0B0;
+  }
+}

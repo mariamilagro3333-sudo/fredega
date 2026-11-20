@@ -1,0 +1,48 @@
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isExisting() {
+      return resource != null;
+    }
+
+    // Reglas para productos: lectura pública, escritura solo para admins
+    match /products/{productId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isAdmin() && isExisting();
+    }
+
+    // Reglas para el Sistema Express (Ventas y Pedidos)
+    match /ventas/{document=**} {
+      allow read, write: if true;
+    }
+
+    match /ventas_mayor/{document=**} {
+      allow read, write: if true;
+    }
+
+    match /pedidos/{document=**} {
+      allow read, write: if true;
+    }
+    
+    // Reglas para Inventario Hogar (Página /base)
+    match /home_items/{itemId} {
+      allow read, write: if true;
+    }
+
+    match /admins/{userId} {
+      allow get: if isSignedIn() && request.auth.uid == userId;
+      allow list, create, update, delete: if false;
+    }
+  }
+}

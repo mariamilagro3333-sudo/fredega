@@ -1,0 +1,23 @@
+
+export const categories = [
+  { slug: "logos", name: "Logos" },
+  { slug: "intros", name: "Intros" },
+  { slug: "redes-sociales", name: "Redes Sociales" },
+  { slug: "eventos-sociales", name: "Eventos Sociales" },
+  { slug: "bodas", name: "Bodas" },
+  { slug: "15-anos", name: "15 Años" },
+  { slug: "efectos", name: "Efectos" },
+  { slug: "titulos", name: "Títulos" },
+  { slug: "elementos", name: "Elementos" },
+  { slug: "navidad", name: "Navidad" },
+  { slug: "halloween", name: "Halloween" },
+  { slug: "packs", name: "Packs" },
+  { slug: "premiere", name: "Premiere" },
+  { slug: "plugins", name: "Plugins" },
+  { slug: "davinci-resolve", name: "Davinci Resolve" },
+  { slug: "after-effects", name: "After Effects" },
+  { slug: "exclusivos-miembros", name: "Exclusivos para Miembros" },
+  { slug: "transiciones", name: "Transiciones" },
+  { slug: "corporativos", name: "Corporativos" },
+  { slug: "mas-1000-plantillas-exclusivas", name: "+2000 PLANTILLAS EXCLUSIVAS" },
+] as const;
