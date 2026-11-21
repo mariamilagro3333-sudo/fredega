@@ -69,10 +69,10 @@ export function SuperPackPortal({ onCategorySelect, activeCategory, showTitle = 
                   ACCESO TOTAL EXCLUSIVO
               </Badge>
           </div>
-          <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white font-headline leading-none max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-white font-headline leading-tight max-w-4xl mx-auto">
             DESCARGA MILES DE PLANTILLAS, EFECTOS Y RECURSOS
           </h2>
-          <p className="text-lg md:text-2xl text-gray-400 font-normal max-w-3xl mx-auto leading-tight">
+          <p className="text-base md:text-lg text-gray-400 font-normal max-w-2xl mx-auto leading-relaxed">
               Desbloquea instantáneamente toda nuestra biblioteca masiva organizada en carpetas de Google Drive para <span className="text-primary font-bold">Premiere, After Effects y DaVinci Resolve.</span>
           </p>
           <div className="flex flex-col items-center gap-4">

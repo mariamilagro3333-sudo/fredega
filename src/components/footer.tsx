@@ -118,15 +118,15 @@ export function Footer() {
       {/* Top Section */}
       <div className="py-12 px-4 md:px-8">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold font-headline uppercase tracking-tighter">Síguenos en todas nuestras plataformas</h2>
-            <p className="text-gray-400 font-normal text-lg">y estarás al día cuando se suban nuevas publicaciones, contenidos y tutoriales.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-5">
+            <h2 className="text-2xl md:text-3xl font-bold font-headline uppercase tracking-tighter">Síguenos en todas nuestras plataformas</h2>
+            <p className="text-gray-400 font-normal text-sm md:text-base">y estarás al día cuando se suban nuevas publicaciones, contenidos y tutoriales.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {socialLinks.map((link) => (
-                <Button key={link.label} asChild variant="outline" className="justify-start bg-black/40 hover:bg-black/60 text-white border-white/10 rounded-lg h-16">
+                <Button key={link.label} asChild variant="outline" className="justify-start bg-black/40 hover:bg-black/60 text-white border-white/10 rounded-lg h-14">
                   <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    <link.icon className="mr-3 h-6 w-6 text-primary" />
-                    <span className="text-lg font-normal">{link.label}</span>
+                    <link.icon className="mr-3 h-5 w-5 text-primary" />
+                    <span className="text-sm md:text-base font-normal">{link.label}</span>
                   </a>
                 </Button>
               ))}
@@ -145,15 +145,15 @@ export function Footer() {
       </div>
       
        {/* Stats Section */}
-      <div className="bg-black/40 py-16 px-4 border-y border-white/5">
-        <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+      <div className="bg-black/40 py-14 px-4 border-y border-white/5">
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
             {stats.map((stat, index) => (
-                <div key={index} className="flex flex-col items-center justify-center space-y-4">
-                    <stat.icon className="h-12 w-12 text-primary mb-2" />
-                    <p className="text-4xl md:text-7xl font-medium font-headline">
+                <div key={index} className="flex flex-col items-center justify-center space-y-3">
+                    <stat.icon className="h-9 w-9 text-primary mb-1" />
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-medium font-headline">
                         <Counter end={stat.end} />
                     </p>
-                    <p className="text-lg md:text-xl uppercase font-normal tracking-widest text-gray-400">{stat.label}</p>
+                    <p className="text-xs md:text-sm uppercase font-normal tracking-widest text-gray-400">{stat.label}</p>
                 </div>
             ))}
         </div>
@@ -174,28 +174,28 @@ export function Footer() {
                         Plataforma líder en recursos para postproducción audiovisual y aprendizaje acelerado.
                     </p>
                 </div>
-                <div className="space-y-6 text-center sm:text-left">
-                    <h3 className="font-semibold text-base uppercase tracking-widest text-primary mb-8">Contáctanos</h3>
+                <div className="space-y-5 text-center sm:text-left">
+                    <h3 className="font-semibold text-sm uppercase tracking-widest text-primary mb-6">Contáctanos</h3>
                     {contactInfo.map((item) => (
-                        <a key={item.text} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 text-gray-400 hover:text-white transition-colors justify-center sm:justify-start font-normal">
-                            <item.icon className="h-6 w-6 flex-shrink-0" />
-                            <span className="text-base md:text-lg">{item.text}</span>
+                        <a key={item.text} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors justify-center sm:justify-start font-normal">
+                            <item.icon className="h-5 w-5 flex-shrink-0" />
+                            <span className="text-sm md:text-base">{item.text}</span>
                         </a>
                     ))}
                 </div>
 
                  <div className="text-center sm:text-left">
-                    <h3 className="font-semibold text-base uppercase tracking-widest text-primary mb-8">Sobre nosotros</h3>
+                    <h3 className="font-semibold text-sm uppercase tracking-widest text-primary mb-6">Sobre nosotros</h3>
                      {isClient && (
-                        <ul className="space-y-4">
+                        <ul className="space-y-3">
                             {aboutUsLinks.map((link) => (
                                 <li key={link.label}>
                                     {link.isExternal ? (
-                                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-base md:text-lg text-gray-400 hover:text-white transition-colors font-normal">
+                                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm md:text-base text-gray-400 hover:text-white transition-colors font-normal">
                                             {link.label}
                                         </a>
                                     ) : (
-                                        <Link href={link.href} className="text-base md:text-lg text-gray-400 hover:text-white transition-colors font-normal">
+                                        <Link href={link.href} className="text-sm md:text-base text-gray-400 hover:text-white transition-colors font-normal">
                                             {link.label}
                                         </Link>
                                     )}
@@ -205,12 +205,12 @@ export function Footer() {
                     )}
                 </div>
                 <div className="text-center sm:text-left">
-                    <h3 className="font-semibold text-base uppercase tracking-widest text-primary mb-8">Servicios</h3>
+                    <h3 className="font-semibold text-sm uppercase tracking-widest text-primary mb-6">Servicios</h3>
                      {isClient && (
-                        <ul className="space-y-4">
+                        <ul className="space-y-3">
                             {servicesLinks.map((link) => (
                                 <li key={link.label}>
-                                    <Link href={link.href} className="text-base md:text-lg text-gray-400 hover:text-white transition-colors font-normal">
+                                    <Link href={link.href} className="text-sm md:text-base text-gray-400 hover:text-white transition-colors font-normal">
                                         {link.label}
                                     </Link>
                                 </li>

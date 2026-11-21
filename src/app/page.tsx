@@ -20,6 +20,7 @@ import { useRegional } from '@/components/regional-context';
 import { SuperPackPortal } from '@/components/super-pack-portal';
 import { Badge } from '@/components/ui/badge';
 import { useAuth } from '@/context/auth-context';
+import { useInscribe } from '@/components/inscribe-context';
 
 const serviceGridItems = [
     { icon: UserCheck, title: "Cursos personalizados", href: "/servicios#cursos-personalizados-anchor" },
@@ -53,6 +54,7 @@ const courseList = [
 
 function HomePageContent() {
   const { rol } = useAuth();
+  const { handleInscribe } = useInscribe();
   const isMember = rol === 'admin' || rol === 'miembro';
   const router = useRouter();
   const pathname = usePathname();
@@ -134,12 +136,19 @@ function HomePageContent() {
                 <Smartphone className="h-32 w-32 md:h-48 md:w-48 text-primary" />
             </div>
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-                <div className="space-y-3 md:space-y-4 text-center md:text-left">
+                <div className="space-y-3 text-center md:text-left">
                     <Badge className="bg-yellow-500 text-black font-black uppercase text-[10px] md:text-xs tracking-widest px-3 py-1">PUBLICACIÓN: 25 NOVIEMBRE</Badge>
-                    <h2 className="text-2xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">MAESTRÍA EN IA CON CELULAR</h2>
-                    <p className="text-sm md:text-lg text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento sin necesidad de PC. Disponible para miembros PRO este miércoles.</p>
+                    <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-tight">MAESTRÍA EN IA CON CELULAR</h2>
+                    <p className="text-sm md:text-base text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento sin necesidad de PC. Disponible para miembros PRO este miércoles.</p>
                 </div>
-                <Button size="lg" className="h-14 md:h-16 w-full md:w-auto px-10 md:px-12 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl">
+                <Button
+                  size="lg"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleInscribe();
+                  }}
+                  className="h-12 md:h-14 w-full md:w-auto px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl"
+                >
                     Inscribirse Ahora <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
             </div>
@@ -203,7 +212,7 @@ function HomePageContent() {
       {/* RECOMMENDED CONTENT */}
       <section className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-10">
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">Sugerencias Pro</h2>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">Sugerencias Pro</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {/* MAESTRÍA IA CARD */}
@@ -242,9 +251,9 @@ function HomePageContent() {
       {/* MEMBER CONVERSION SECTION */}
       <section className="container mx-auto px-4 md:px-6">
         <div className="bg-[#1a1a1a] rounded-[2rem] md:rounded-[3rem] p-8 md:p-14 text-center text-white border-2 border-yellow-500/30">
-            <Gem className="h-10 w-10 md:h-14 md:w-14 text-yellow-500 mx-auto mb-6 md:mb-8 animate-pulse" />
-            <h2 className="text-2xl md:text-5xl font-black mb-4 md:mb-6 uppercase tracking-tighter leading-tight">Acceso Total a Miles de Recursos con la Membresía PRO</h2>
-            <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto mb-8 md:mb-12 font-medium leading-relaxed">
+            <Gem className="h-10 w-10 md:h-12 md:w-12 text-yellow-500 mx-auto mb-5 md:mb-6 animate-pulse" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-5 uppercase tracking-tighter leading-tight max-w-3xl mx-auto">Acceso Total a Miles de Recursos con la Membresía PRO</h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-10 font-medium leading-relaxed">
                 Descarga miles de plantillas, efectos y títulos en Google Drive. Recibe más de 100 nuevos recursos cada 5 días.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
@@ -275,7 +284,7 @@ function HomePageContent() {
                     </div>
                 ))}
             </div>
-            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-black uppercase rounded-xl md:rounded-full px-8 md:px-14 h-14 md:h-16 tracking-widest text-xs md:text-lg shadow-2xl shadow-yellow-500/10 w-full sm:w-auto">
+            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-black uppercase rounded-xl md:rounded-full px-8 md:px-12 h-12 md:h-14 tracking-widest text-xs md:text-sm shadow-2xl shadow-yellow-500/10 w-full sm:w-auto">
                 <Link href="/membresia">Obtener Membresía Aquí</Link>
             </Button>
         </div>
@@ -283,23 +292,23 @@ function HomePageContent() {
 
       {/* FREE COURSES PREVIEW */}
       <section className="container mx-auto px-4 md:px-6">
-        <div className="relative rounded-[2rem] border-2 border-primary/50 p-6 md:p-10 pt-16 md:pt-20 bg-card">
-            <div className="absolute -top-7 left-1/2 -translate-x-1/2">
-                <div className="rounded-full bg-primary px-6 py-3 md:px-10 md:py-4 shadow-2xl border border-primary/50">
-                    <h2 className="whitespace-nowrap text-sm sm:text-lg md:text-2xl font-black text-white uppercase tracking-widest">Cursos Gratuitos</h2>
+        <div className="relative rounded-[2rem] border-2 border-primary/50 p-6 md:p-10 pt-16 bg-card">
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+                <div className="rounded-full bg-primary px-6 py-2.5 md:px-8 md:py-3 shadow-2xl border border-primary/50">
+                    <h2 className="whitespace-nowrap text-sm sm:text-base md:text-lg font-black text-white uppercase tracking-widest">Cursos Gratuitos</h2>
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 {courseList.map((course, index) => (
                     <div key={index} className="space-y-3 md:space-y-4 group">
-                        <div className="flex items-center gap-4 md:gap-5">
-                            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-all border border-primary/20 shrink-0">
-                                {course.icon && <course.icon className="h-6 w-6 md:h-7 md:w-7 text-primary" />}
-                                {course.logo && <span className="text-xl md:text-2xl font-black text-primary">{course.logo}</span>}
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-all border border-primary/20 shrink-0">
+                                {course.icon && <course.icon className="h-6 w-6 text-primary" />}
+                                {course.logo && <span className="text-xl font-black text-primary">{course.logo}</span>}
                             </div>
-                            <h3 className="font-black text-lg md:text-xl uppercase tracking-tight leading-tight">{course.title}</h3>
+                            <h3 className="font-black text-base md:text-lg uppercase tracking-tight leading-tight">{course.title}</h3>
                         </div>
-                        <p className="text-sm md:text-base text-muted-foreground line-clamp-3 font-normal leading-relaxed">{course.description}</p>
+                        <p className="text-sm text-muted-foreground line-clamp-3 font-normal leading-relaxed">{course.description}</p>
                         <Link href={course.href} className="inline-flex items-center text-[10px] md:text-xs font-black text-primary hover:underline uppercase tracking-widest">
                             VER MÁS DETALLES <ArrowRight className="ml-1.5 h-3 w-3" />
                         </Link>

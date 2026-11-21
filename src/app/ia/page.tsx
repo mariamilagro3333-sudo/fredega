@@ -10,10 +10,8 @@ import {
   Film, Video, Layers, Wand2, Gem, Users, Globe, Smartphone, TabletSmartphone
 } from 'lucide-react';
 import Link from 'next/link';
-import { useAuth } from '@/context/auth-context';
 import { cn } from '@/lib/utils';
-import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
+import { useInscribe } from '@/components/inscribe-context';
 
 const curriculum = [
     { 
@@ -62,25 +60,13 @@ const curriculum = [
 ];
 
 export default function IACoursePromoPage() {
-  const { rol } = useAuth();
-  const { toast } = useToast();
-  const router = useRouter();
-  const isMember = rol === 'miembro' || rol === 'admin';
-  const whatsappChannel = "https://whatsapp.com/channel/0029Vb9ptJvEAKWLbEBGNN10";
-
-  const handleInscribe = () => {
-    if (isMember) {
-      window.open(whatsappChannel, '_blank');
-    } else {
-      router.push('/membresia');
-    }
-  };
+  const { handleInscribe, isMember } = useInscribe();
 
   return (
     <div className="min-h-screen bg-[#020617] text-white flex flex-col selection:bg-primary/30">
       
       {/* HERO SECTION CINEMÁTICO */}
-      <section className="relative w-full py-20 md:py-40 overflow-hidden flex items-center justify-center">
+      <section className="relative w-full py-16 md:py-28 overflow-hidden flex items-center justify-center">
         <video 
             src="https://media.fredegapro.com/01/catalogo/PANORAMICO2.mp4" 
             autoPlay muted loop playsInline 
@@ -88,13 +74,13 @@ export default function IACoursePromoPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/20 to-[#020617]" />
         
-        <div className="container relative z-10 px-4 text-center space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-          <div className="flex flex-col items-center gap-3 md:gap-4">
-              <Badge className="bg-yellow-500 text-black font-black px-4 py-1 md:px-6 md:py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_20px_rgba(234,179,8,0.4)] text-[10px] md:text-xs">
+        <div className="container relative z-10 px-4 text-center space-y-5 md:space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+          <div className="flex flex-col items-center gap-3">
+              <Badge className="bg-yellow-500 text-black font-black px-4 py-1 md:px-5 md:py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_20px_rgba(234,179,8,0.4)] text-[10px] md:text-xs">
                 ESTRENO: MIÉRCOLES 25 DE NOVIEMBRE
               </Badge>
               <Badge className={cn(
-                  "font-black px-6 py-2 tracking-widest uppercase shadow-[0_0_20px_rgba(30,144,255,0.4)] text-xs md:text-sm",
+                  "font-black px-5 py-1.5 tracking-widest uppercase shadow-[0_0_20px_rgba(30,144,255,0.4)] text-[11px] md:text-xs",
                   isMember ? "bg-emerald-600 text-white" : "bg-primary text-white"
               )}>
                 {isMember ? "¡LISTO PARA EL LANZAMIENTO MÓVIL!" : "EDICIÓN PRO DESDE TU CELULAR"}
@@ -108,18 +94,18 @@ export default function IACoursePromoPage() {
                 </Badge>
               </div>
           </div>
-          <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] max-w-5xl mx-auto font-headline">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] max-w-4xl mx-auto font-headline">
             MAESTRÍA EN <span className="text-primary italic">IA Y EDICIÓN MÓVIL</span>
           </h1>
-          <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium leading-tight">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto font-medium leading-snug">
             Logra todos los efectos del demo usando solo tu <span className="text-white font-bold">celular</span>. El futuro de la edición está en tus manos.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 md:pt-8 w-full max-w-lg mx-auto">
-            <Button onClick={handleInscribe} size="lg" className="h-16 md:h-20 w-full px-8 md:px-12 rounded-2xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:scale-105 transition-all">
-                INSCRIBIRSE AHORA (ACCESO PRO)
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-4 md:pt-5 w-full max-w-lg mx-auto">
+            <Button onClick={handleInscribe} size="lg" className="h-14 w-full px-8 md:px-10 rounded-2xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:scale-105 transition-all">
+                {isMember ? "INSCRIBIRSE AHORA" : "INSCRIBIRSE AHORA (ACCESO PRO)"}
             </Button>
-             <Button asChild variant="outline" size="lg" className="h-16 md:h-20 w-full px-8 md:px-12 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs md:text-sm backdrop-blur-md">
+             <Button asChild variant="outline" size="lg" className="h-14 w-full px-8 md:px-10 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs md:text-sm backdrop-blur-md">
                 <Link href="#detalles">Ver Programa Detallado</Link>
             </Button>
           </div>
@@ -132,8 +118,8 @@ export default function IACoursePromoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
               <div className="space-y-6 md:space-y-8">
                   <div className="space-y-4 text-center lg:text-left">
-                      <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">EL MIÉRCOLES COMIENZA <span className="text-primary">TU NUEVA ERA</span></h2>
-                      <p className="text-base md:text-lg text-gray-400 font-normal leading-relaxed">
+                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tighter leading-tight">EL MIÉRCOLES COMIENZA <span className="text-primary">TU NUEVA ERA</span></h2>
+                      <p className="text-sm md:text-base text-gray-400 font-normal leading-relaxed">
                           Este 25 de noviembre liberamos el primer curso grabado íntegramente desde un teléfono. Aprenderás a integrar IA avanzada en tus ediciones móviles para lograr resultados cinematográficos en 4K.
                       </p>
                   </div>
@@ -170,18 +156,18 @@ export default function IACoursePromoPage() {
           {/* CATÁLOGO DE MÓDULOS */}
           <div className="space-y-12">
               <div className="text-center space-y-3">
-                  <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter">RUTA DE APRENDIZAJE <span className="text-primary">CELULAR</span></h2>
-                  <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto font-medium">Todo lo que necesitas saber para dominar el cine móvil.</p>
+                  <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">RUTA DE APRENDIZAJE <span className="text-primary">CELULAR</span></h2>
+                  <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto font-medium">Todo lo que necesitas saber para dominar el cine móvil.</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
                   {curriculum.map((module, i) => (
                       <Card key={i} className="bg-white/5 border-white/10 rounded-2xl md:rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all flex flex-col">
-                          <CardHeader className="p-6 md:p-8 pb-4">
+                          <CardHeader className="p-6 md:p-7 pb-4">
                               <div className="flex items-center gap-3 mb-2">
                                   <Badge className="bg-primary/20 text-primary border-none font-black text-[9px] md:text-[10px]">MÓDULO 0{i+1}</Badge>
                               </div>
-                              <CardTitle className="text-lg md:text-xl font-black uppercase tracking-tight text-white leading-tight">{module.title}</CardTitle>
+                              <CardTitle className="text-base md:text-lg font-black uppercase tracking-tight text-white leading-tight">{module.title}</CardTitle>
                           </CardHeader>
                           <CardContent className="p-6 md:p-8 pt-0 flex-grow">
                               <ul className="space-y-3 md:space-y-4">
@@ -204,19 +190,17 @@ export default function IACoursePromoPage() {
                 <div className="absolute top-0 right-0 p-10 opacity-10 hidden md:block">
                     <Smartphone className="h-64 w-64 text-primary" />
                 </div>
-                <Badge className="mb-4 md:mb-6 bg-yellow-500 text-black font-black uppercase tracking-widest text-[9px] md:text-xs">LANZAMIENTO: 25 NOVIEMBRE</Badge>
-                <h2 className="text-3xl md:text-7xl font-black uppercase mb-4 md:mb-6 text-white leading-none tracking-tighter">EL MIÉRCOLES CAMBIA TU FORMA DE CREAR</h2>
-                <p className="text-base md:text-2xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto font-medium leading-snug">
+                <Badge className="mb-4 md:mb-5 bg-yellow-500 text-black font-black uppercase tracking-widest text-[9px] md:text-xs">LANZAMIENTO: 25 NOVIEMBRE</Badge>
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase mb-4 md:mb-5 text-white leading-tight tracking-tighter max-w-3xl mx-auto">EL MIÉRCOLES CAMBIA TU FORMA DE CREAR</h2>
+                <p className="text-sm md:text-lg text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto font-medium leading-snug">
                     Accede a toda la formación móvil con tu membresía VIP. Únete ahora para recibir el aviso del lanzamiento.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                    <Button onClick={handleInscribe} size="lg" className="h-14 md:h-16 px-10 md:px-14 rounded-xl md:rounded-2xl bg-white text-black hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] md:text-sm shadow-xl transition-all">
-                         {isMember ? "IR AL CANAL WHATSAPP" : "ADQUIRIR MEMBRESÍA VIP"}
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <Button onClick={handleInscribe} size="lg" className="h-12 md:h-14 px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all">
+                         {isMember ? "IR AL CANAL WHATSAPP" : "INSCRIBIRSE AHORA"}
                     </Button>
-                    <Button asChild size="lg" className="h-14 md:h-16 px-10 md:px-14 rounded-xl md:rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[10px] md:text-sm shadow-xl transition-all">
-                        <Link href="/pagos">
-                            <Rocket className="mr-3 h-4 w-4 md:h-6 md:w-6" /> Inscribirme Hoy
-                        </Link>
+                    <Button onClick={handleInscribe} size="lg" className="h-12 md:h-14 px-8 md:px-10 rounded-xl md:rounded-2xl bg-primary text-white hover:bg-primary/90 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all">
+                        <Rocket className="mr-2.5 h-4 w-4 md:h-5 md:w-5" /> Inscribirme Hoy
                     </Button>
                 </div>
             </Card>

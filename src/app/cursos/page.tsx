@@ -130,11 +130,11 @@ function CourseSection({ course, onCourseClick }: { course: Course; onCourseClic
               {!course.isFree && <Badge variant="outline" className="text-primary border-primary/30 px-4 py-1 text-sm font-bold uppercase tracking-widest">PRO</Badge>}
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[1.1] font-headline">
+            <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter leading-[1.1] font-headline">
               {course.title}
             </h2>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-normal leading-relaxed max-w-4xl">
+            <p className="text-base md:text-lg text-gray-400 font-normal leading-relaxed max-w-3xl">
               {course.description}
             </p>
 
@@ -200,11 +200,11 @@ function PersonalizedCoursesBanner() {
               <Badge variant="outline" className="text-accent border-accent/30 px-4 py-1 text-sm font-bold uppercase tracking-widest">PERSONALIZADO</Badge>
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[1.1] font-headline">
+            <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter leading-[1.1] font-headline">
               Cursos <span className="text-accent">A Tu Medida</span>
             </h2>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-normal leading-relaxed max-w-4xl">
+            <p className="text-base md:text-lg text-gray-400 font-normal leading-relaxed max-w-3xl">
               Avanza a tu propio ritmo con un plan de estudios diseñado para ti. Ofrezco cursos personalizados de Adobe Premiere, After Effects, DaVinci Resolve y más.
             </p>
             
@@ -379,10 +379,10 @@ function CoursesPageContent() {
                 <Badge className="bg-primary/20 text-primary border-primary/30 px-6 py-1 text-xs font-black uppercase tracking-[0.3em]">
                     CENTRO DE FORMACIÓN PRO
                 </Badge>
-                <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white font-headline leading-none">
+                <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white font-headline leading-tight">
                     Cursos y <span className="text-primary">Especializaciones</span>
                 </h1>
-                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-medium">
+                <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto font-medium">
                     Desde lo básico hasta el dominio de la Inteligencia Artificial en Adobe, CapCut, Filmora y DaVinci.
                 </p>
             </div>
@@ -391,8 +391,8 @@ function CoursesPageContent() {
         {/* Header & Featured Banner */}
         <section className="container mx-auto px-4 md:px-6 py-12">
             <div className="text-center mb-12">
-                <h2 className="text-3xl font-black uppercase tracking-tight text-white font-headline">Explora nuestros tutoriales gratuitos</h2>
-                <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto font-normal">
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white font-headline">Explora nuestros tutoriales gratuitos</h2>
+                <p className="text-gray-400 text-sm md:text-base mt-3 max-w-2xl mx-auto font-normal">
                     Debajo de la sección de cursos, desplázate para ver más de {entries.length + youtubeVideos.length} tutoriales gratuitos.
                 </p>
             </div>
@@ -440,8 +440,8 @@ function CoursesPageContent() {
         {/* COURSES LIST (NEW DESIGN) */}
         <div className="space-y-0">
           <div className="container mx-auto px-4 md:px-6 py-12 text-center">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white font-headline">Nuestros Cursos de Formación</h2>
-            <p className="text-xl text-gray-400 mt-4 font-normal">Domina las herramientas más potentes del mercado.</p>
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white font-headline">Nuestros Cursos de Formación</h2>
+            <p className="text-base md:text-lg text-gray-400 mt-3 font-normal">Domina las herramientas más potentes del mercado.</p>
           </div>
           {courses.map((course) => (
             <CourseSection key={course.id} course={course} onCourseClick={handleCourseClick} />
@@ -452,11 +452,11 @@ function CoursesPageContent() {
         <section className="container mx-auto px-4 md:px-6 py-24">
             <div className="flex items-center gap-4 mb-12">
                 <div className="bg-primary/20 p-4 rounded-2xl">
-                    <BookOpen className="h-8 w-8 text-primary" />
+                    <BookOpen className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                    <h3 className="text-3xl font-black uppercase tracking-tight text-white font-headline">Todos Nuestros Tutoriales</h3>
-                    <p className="text-gray-400 text-lg font-normal">Amplía tus habilidades con nuestras guías gratuitas.</p>
+                    <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white font-headline">Todos Nuestros Tutoriales</h3>
+                    <p className="text-gray-400 text-sm md:text-base font-normal">Amplía tus habilidades con nuestras guías gratuitas.</p>
                 </div>
             </div>
             

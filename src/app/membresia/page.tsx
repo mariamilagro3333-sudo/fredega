@@ -63,15 +63,15 @@ export default function MembershipPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]" />
         
         <div className="container relative z-10 px-4 text-center space-y-6">
-          <Badge className="bg-primary text-white font-black px-6 py-1 tracking-widest uppercase text-[10px] md:text-xs">MEMBRESÍA VIP 2026</Badge>
-          <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] max-w-5xl mx-auto font-headline">
+          <Badge className="bg-primary text-white font-black px-5 py-1 tracking-widest uppercase text-[10px] md:text-xs">MEMBRESÍA VIP 2026</Badge>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] max-w-4xl mx-auto font-headline">
             POTENCIA TU <br/><span className="text-primary">CREATIVIDAD AL MÁXIMO</span>
           </h1>
-          <p className="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto font-medium">
+          <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto font-medium">
             Descarga la biblioteca más grande de recursos y domina la IA móvil.
           </p>
-          <div className="pt-4">
-            <Button asChild size="lg" className="h-16 md:h-20 w-full sm:w-auto px-10 md:px-14 rounded-2xl md:rounded-3xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-xl hover:scale-105 transition-all">
+          <div className="pt-3">
+            <Button asChild size="lg" className="h-14 w-full sm:w-auto px-8 md:px-10 rounded-2xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-xl hover:scale-105 transition-all">
                 <Link href="#precios">{isMember ? 'Renovar Membresía Aquí' : 'Hazte miembro hoy'}</Link>
             </Button>
           </div>
@@ -87,9 +87,9 @@ export default function MembershipPage() {
 
         {/* VALOR DE LOS SÚPER PACKS */}
         <section className="mb-20 md:mb-24 text-center space-y-8 md:space-y-12">
-            <div className="space-y-4">
-                <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter">PODER EN <span className="text-primary">SÚPER PACKS</span></h2>
-                <p className="text-gray-400 text-base md:text-xl font-medium max-w-4xl mx-auto leading-relaxed">
+            <div className="space-y-3">
+                <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">PODER EN <span className="text-primary">SÚPER PACKS</span></h2>
+                <p className="text-gray-400 text-sm md:text-base lg:text-lg font-medium max-w-3xl mx-auto leading-relaxed">
                     No descargues uno por uno. Obtén acceso a carpetas masivas de Google Drive organizadas por categorías.
                 </p>
             </div>
@@ -120,8 +120,8 @@ export default function MembershipPage() {
                 <CardHeader className="text-center pb-6 md:pb-8 border-b border-white/10 pt-8 md:pt-10">
                   <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">{plan.title}</h3>
                   <p className="text-[10px] md:text-sm font-bold text-primary uppercase tracking-widest mt-1 md:mt-2">{plan.subtitle}</p>
-                  <div className="mt-6 md:mt-8 flex items-baseline justify-center gap-1">
-                    <span className="text-5xl md:text-6xl font-black text-white">${plan.price}</span>
+                  <div className="mt-5 md:mt-6 flex items-baseline justify-center gap-1">
+                    <span className="text-4xl md:text-5xl font-black text-white">${plan.price}</span>
                     <span className="text-gray-500 uppercase text-[10px] md:text-xs font-black tracking-widest">{plan.currency}</span>
                   </div>
                 </CardHeader>
@@ -170,17 +170,17 @@ export default function MembershipPage() {
                 <div className="absolute top-0 right-0 p-10 opacity-10 hidden md:block">
                     <Zap className="h-64 w-64 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-6xl font-black uppercase mb-4 md:mb-6 text-white leading-none tracking-tighter">ÚNETE A LA ELITE CREATIVA</h2>
-                <p className="text-base md:text-2xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto font-medium">No pierdas más tiempo buscando recursos por separado.</p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                    <Button asChild size="lg" className="h-14 md:h-16 px-10 md:px-14 rounded-xl md:rounded-2xl bg-white text-black hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] md:text-sm shadow-xl transition-all">
+                <h2 className="text-2xl md:text-4xl font-black uppercase mb-4 md:mb-5 text-white leading-tight tracking-tighter">ÚNETE A LA ELITE CREATIVA</h2>
+                <p className="text-sm md:text-lg text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto font-medium">No pierdas más tiempo buscando recursos por separado.</p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <Button asChild size="lg" className="h-12 md:h-14 px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all">
                          <a href="https://api.whatsapp.com/send?phone=573195456391" target="_blank" rel="noopener noreferrer">
-                            <MessageCircle className="mr-3 h-5 w-5 md:h-6 md:w-6" /> WhatsApp Soporte
+                            <MessageCircle className="mr-2.5 h-4 w-4 md:h-5 md:w-5" /> WhatsApp Soporte
                         </a>
                     </Button>
-                    <Button asChild size="lg" className="h-14 md:h-16 px-10 md:px-14 rounded-xl md:rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[10px] md:text-sm shadow-xl transition-all">
+                    <Button asChild size="lg" className="h-12 md:h-14 px-8 md:px-10 rounded-xl md:rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all">
                          <Link href="/pagos">
-                            <Rocket className="mr-3 h-5 w-5 md:h-6 md:w-6" /> Empezar Ahora
+                            <Rocket className="mr-2.5 h-4 w-4 md:h-5 md:w-5" /> Empezar Ahora
                         </Link>
                     </Button>
                 </div>

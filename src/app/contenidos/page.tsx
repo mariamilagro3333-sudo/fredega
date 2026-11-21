@@ -168,10 +168,10 @@ function ContenidosPageContent() {
                                 {activeCategory === 'all' ? "ACCESO MASIVO" : "CONTENIDO PREMIUM"}
                             </Badge>
                         </div>
-                        <h3 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none max-w-5xl">
+                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-tight max-w-4xl">
                             {activeCategory === 'all' ? "MILES DE RECURSOS EN DRIVE" : `SUPER PACK DE ${activeSuperPack?.name}`}
                         </h3>
-                        <p className="text-xl md:text-2xl text-gray-200 font-medium max-w-3xl">
+                        <p className="text-base md:text-lg text-gray-200 font-medium max-w-2xl">
                             {activeCategory === 'all' 
                                 ? "Descarga toda nuestra biblioteca masiva organizada en carpetas de Google Drive para Premiere, After Effects y DaVinci."
                                 : "Este es un contenido premium que contiene miles de recursos profesionales para esta categoría."}
@@ -214,8 +214,8 @@ function ContenidosPageContent() {
                     </div>
                     <div className="space-y-1">
                         <Badge className="bg-primary/20 text-primary font-black uppercase text-[10px] tracking-widest px-3">ESTÁNDAR 2026</Badge>
-                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">Descargar Programas de Edición</h2>
-                        <p className="text-gray-400 font-medium text-sm md:text-base">Obtén los instaladores de After Effects, Premiere, DaVinci y más.</p>
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-black uppercase tracking-tighter">Descargar Programas de Edición</h2>
+                        <p className="text-gray-400 font-medium text-sm">Obtén los instaladores de After Effects, Premiere, DaVinci y más.</p>
                     </div>
                 </div>
 

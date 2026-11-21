@@ -18,30 +18,16 @@ import type { Entry } from '@/types';
 import { EntryDetailDialog } from '@/components/entry-detail-dialog';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
-import { useAuth } from '@/context/auth-context';
-import { useToast } from '@/hooks/use-toast';
+import { useInscribe } from '@/components/inscribe-context';
 import { cn } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
 
 const categories = ['Todas', 'Google AI', 'Adobe Suite', 'CapCut Pro', 'Filmora IA', 'Davinci Resolve'] as const;
 
 export default function AprendePage() {
-  const { rol } = useAuth();
-  const router = useRouter();
-  const { toast } = useToast();
-  const isMember = rol === 'miembro' || rol === 'admin';
+  const { handleInscribe, isMember } = useInscribe();
   const [selectedVideo, setSelectedVideo] = useState<YouTubeVideo | null>(null);
   const [activeCategory, setActiveCategory] = useState<typeof categories[number]>('Todas');
   const [selectedEntry, setSelectedEntry] = useState<Entry | null>(null);
-  const whatsappChannel = "https://whatsapp.com/channel/0029Vb9ptJvEAKWLbEBGNN10";
-
-  const handleInscribeClick = () => {
-    if (isMember) {
-      window.open(whatsappChannel, '_blank');
-    } else {
-      router.push('/membresia');
-    }
-  };
 
   const filteredVideos = useMemo(() => {
     let result = [...youtubeVideos];
@@ -99,25 +85,25 @@ export default function AprendePage() {
                 </Badge>
               </div>
           </div>
-          <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] max-w-5xl mx-auto font-headline">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] max-w-4xl mx-auto font-headline">
             DOMINA LA <span className="text-primary italic">IA EN TU CELULAR</span>
           </h1>
-          <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium leading-tight">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto font-medium leading-snug">
             Aprende a crear todos los efectos cinematográficos usando solo tu <span className="text-white font-bold">teléfono</span>. Únete hoy para el lanzamiento de este miércoles.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-4">
             <button 
-                onClick={handleInscribeClick} 
+                onClick={handleInscribe} 
                 className={cn(
-                    "h-20 px-12 rounded-3xl font-black uppercase tracking-widest text-sm shadow-2xl hover:scale-105 transition-all text-white flex items-center justify-center min-w-[280px]",
+                    "h-14 px-8 md:px-10 rounded-2xl font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:scale-105 transition-all text-white flex items-center justify-center w-full sm:w-auto sm:min-w-[260px]",
                     isMember ? "bg-emerald-600 hover:bg-emerald-700" : "bg-primary hover:bg-primary/90"
                 )}
             >
                 {isMember ? "INSCRIBIRSE AL LANZAMIENTO" : "INSCRIBIRSE (ACCESO PRO)"}
-                <ArrowRight className="ml-3 h-5 w-5" />
+                <ArrowRight className="ml-2.5 h-4 w-4 md:h-5 md:w-5" />
             </button>
-            <Button asChild variant="outline" size="lg" className="h-20 px-10 rounded-3xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-sm backdrop-blur-md shadow-xl">
+            <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs md:text-sm backdrop-blur-md shadow-xl w-full sm:w-auto">
                 <Link href="/ia">Ver Programa Detallado</Link>
             </Button>
           </div>
@@ -221,8 +207,8 @@ export default function AprendePage() {
         {/* SECCIÓN DE TUTORIALES CLÁSICOS */}
         <section className="pb-32 space-y-12">
             <div className="text-center space-y-2">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter font-headline">Tutoriales <span className="text-primary">Especializados</span></h2>
-                <p className="text-gray-400 text-lg font-normal">Explora nuestra biblioteca de técnicas avanzadas gratuitas.</p>
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter font-headline">Tutoriales <span className="text-primary">Especializados</span></h2>
+                <p className="text-gray-400 text-sm md:text-base font-normal">Explora nuestra biblioteca de técnicas avanzadas gratuitas.</p>
             </div>
             
             <div className="flex justify-center overflow-x-auto pb-10 scrollbar-hide">
