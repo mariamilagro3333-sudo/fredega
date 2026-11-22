@@ -15,6 +15,8 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 import { useInscribe } from './inscribe-context';
+import { IaDemosCarousel } from './ia-demos-carousel';
+import { IaLaunchCountdown } from './ia-launch-countdown';
 
 const curriculumDetails = [
   { 
@@ -98,32 +100,34 @@ function IaPromoBannerContent({ className }: { className?: string }) {
           <div className="flex-1 space-y-6 md:space-y-8 text-center lg:text-left">
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-3 mb-2">
               <Badge className="bg-[#EAB308] text-black px-3 py-1 md:px-4 md:py-1.5 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-none rounded-full animate-pulse">
-                LANZAMIENTO: 25 NOVIEMBRE
+                LANZAMIENTO: 25 NOV · 12:00 PM COL
               </Badge>
               <Badge variant="outline" className="border-primary/50 text-primary px-3 py-1 md:px-4 md:py-1.5 text-[9px] md:text-[10px] font-black uppercase tracking-widest bg-primary/5 rounded-full">
-                100% EN CELULAR
+                100% TELÉFONO, TABLET U ORDENADOR
               </Badge>
             </div>
             
             <div className="space-y-3 md:space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter leading-[1.05] font-headline max-w-3xl mx-auto lg:mx-0">
                 MAESTRÍA EN <br/>
-                <span className="text-primary italic">IA Y EDICIÓN MÓVIL</span>
+                <span className="text-primary italic">IA Y EDICIÓN PRO</span>
               </h2>
             </div>
             
             <div className="space-y-3 md:space-y-4 max-w-2xl mx-auto lg:mx-0">
               <p className="text-sm md:text-base lg:text-lg text-gray-400 font-medium leading-relaxed">
-                Logra resultados cinematográficos sin usar una PC. Clases enfocadas en movilidad absoluta para editores de la nueva era.
+                Logra resultados cinematográficos realizando el curso 100% con tu teléfono, tablet u ordenador. Clases prácticas diseñadas para editores de la nueva era.
               </p>
               <p className="text-base md:text-lg text-white font-black uppercase tracking-tight pt-1">
                 ¡Exclusivo Miembros PRO!
               </p>
             </div>
+
+            <IaLaunchCountdown variant="banner" align="left" />
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5 pt-4 md:pt-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5 pt-2 md:pt-4">
               <Button onClick={handleInscribe} size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 h-12 md:h-14 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-2xl transition-all hover:scale-105 w-full sm:w-auto">
-                INSCRIBIRSE AL CURSO MÓVIL <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                INSCRIBIRSE AL CURSO IA <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
               <Button 
                 variant="ghost" 
@@ -131,7 +135,7 @@ function IaPromoBannerContent({ className }: { className?: string }) {
                 className="text-gray-300 hover:text-white h-12 md:h-14 px-6 font-black uppercase tracking-widest text-[10px] md:text-xs w-full sm:w-auto"
                 onClick={handleDetailsClick}
               >
-                VER TEMARIO CELULAR <Play className="h-3 w-3 ml-2 md:ml-3 fill-current" />
+                VER TEMARIO COMPLETO <Play className="h-3 w-3 ml-2 md:ml-3 fill-current" />
               </Button>
             </div>
           </div>
@@ -145,6 +149,10 @@ function IaPromoBannerContent({ className }: { className?: string }) {
             </div>
           </div>
         </div>
+
+        <div className="mt-10 md:mt-14 pt-8 md:pt-10 border-t border-white/10">
+          <IaDemosCarousel variant="compact" />
+        </div>
       </div>
 
       <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
@@ -156,16 +164,18 @@ function IaPromoBannerContent({ className }: { className?: string }) {
           <div className="p-6 md:p-12 space-y-6 md:space-y-8 max-h-[70vh] overflow-y-auto">
             <DialogHeader className="text-left space-y-3 md:space-y-4">
               <div className="flex gap-2 flex-wrap">
-                <Badge className="w-fit bg-yellow-500 text-black font-black uppercase text-[9px] md:text-xs tracking-widest px-2 py-0.5">ESTRENO 25 NOV</Badge>
-                <Badge className="w-fit bg-emerald-600 text-white font-black uppercase text-[9px] md:text-xs tracking-widest px-2 py-0.5">GAMA MEDIA OK</Badge>
+                <Badge className="w-fit bg-yellow-500 text-black font-black uppercase text-[9px] md:text-xs tracking-widest px-2 py-0.5">ESTRENO 25 NOV · 12:00 PM COL</Badge>
+                <Badge className="w-fit bg-emerald-600 text-white font-black uppercase text-[9px] md:text-xs tracking-widest px-2 py-0.5">TELÉFONO, TABLET U ORDENADOR</Badge>
               </div>
               <DialogTitle className="text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight text-white">
-                CURSO PRO <br/> <span className="text-primary italic">EDICIÓN IA DESDE EL CELULAR</span>
+                CURSO PRO <br/> <span className="text-primary italic">EDICIÓN CON IA 2026</span>
               </DialogTitle>
               <DialogDescription className="text-sm md:text-base text-gray-400 font-medium leading-relaxed">
-                Domina las herramientas de IA y edición cinematográfica directamente en tu teléfono. Sin necesidad de PC.
+                Domina las herramientas de IA y edición cinematográfica realizando el curso 100% con tu teléfono, tablet u ordenador.
               </DialogDescription>
             </DialogHeader>
+
+            <IaDemosCarousel variant="compact" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {curriculumDetails.map((item, idx) => (
@@ -188,9 +198,9 @@ function IaPromoBannerContent({ className }: { className?: string }) {
 
             <div className="bg-primary/5 p-6 md:p-8 rounded-2xl md:rounded-3xl border-2 border-primary/20 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
                 <div className="space-y-1 text-center md:text-left">
-                    <p className="text-primary font-black uppercase tracking-widest text-[10px] md:text-xs">EL MIÉRCOLES COMIENZA TODO</p>
-                    <h5 className="text-lg md:text-xl font-black text-white uppercase tracking-tight">LANZAMIENTO: 25 DE NOVIEMBRE</h5>
-                    <p className="text-gray-400 text-xs md:text-sm font-medium">Los miembros PRO tendrán acceso inmediato al material.</p>
+                    <p className="text-primary font-black uppercase tracking-widest text-[10px] md:text-xs">EL MIÉRCOLES AL MEDIODÍA COMIENZA TODO</p>
+                    <h5 className="text-lg md:text-xl font-black text-white uppercase tracking-tight">LANZAMIENTO: 25 NOV · 12:00 PM (COLOMBIA)</h5>
+                    <p className="text-gray-400 text-xs md:text-sm font-medium">Realízalo 100% desde tu teléfono, tablet u ordenador.</p>
                 </div>
                 <Button onClick={handleInscribeFromModal} size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-black uppercase px-8 md:px-10 h-12 rounded-xl md:rounded-2xl shadow-xl text-[10px] md:text-xs">
                     Inscribirme Ahora

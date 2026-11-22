@@ -7,11 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { 
   BrainCircuit, Sparkles, Rocket, Cpu, MonitorPlay, 
   Clock, CheckCircle2, Crown, Zap, ArrowRight, Play,
-  Film, Video, Layers, Wand2, Gem, Users, Globe, Smartphone, TabletSmartphone
+  Film, Video, Layers, Wand2, Gem, Users, Globe, Smartphone, TabletSmartphone, Laptop
 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useInscribe } from '@/components/inscribe-context';
+import { IaDemosCarousel } from '@/components/ia-demos-carousel';
+import { IaLaunchCountdown } from '@/components/ia-launch-countdown';
 
 const curriculum = [
     { 
@@ -77,17 +79,19 @@ export default function IACoursePromoPage() {
         <div className="container relative z-10 px-4 text-center space-y-5 md:space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
           <div className="flex flex-col items-center gap-3">
               <Badge className="bg-yellow-500 text-black font-black px-4 py-1 md:px-5 md:py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_20px_rgba(234,179,8,0.4)] text-[10px] md:text-xs">
-                ESTRENO: MIÉRCOLES 25 DE NOVIEMBRE
+                ESTRENO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA
               </Badge>
               <Badge className={cn(
                   "font-black px-5 py-1.5 tracking-widest uppercase shadow-[0_0_20px_rgba(30,144,255,0.4)] text-[11px] md:text-xs",
                   isMember ? "bg-emerald-600 text-white" : "bg-primary text-white"
               )}>
-                {isMember ? "¡LISTO PARA EL LANZAMIENTO MÓVIL!" : "EDICIÓN PRO DESDE TU CELULAR"}
+                {isMember ? "¡LISTO PARA EL LANZAMIENTO!" : "100% EN TELÉFONO, TABLET U ORDENADOR"}
               </Badge>
               <div className="flex flex-wrap justify-center gap-2">
                 <Badge variant="outline" className="border-primary/50 text-primary font-black px-4 py-1 tracking-widest uppercase bg-primary/10 text-[9px] md:text-[10px]">
-                  <Smartphone className="mr-2 h-3 w-3 md:h-4 md:w-4" /> NO NECESITAS PC
+                  <Smartphone className="mr-1.5 h-3 w-3 md:h-4 md:w-4" />
+                  <Laptop className="mr-1.5 h-3 w-3 md:h-4 md:w-4" />
+                  TELÉFONO, TABLET U ORDENADOR
                 </Badge>
                 <Badge className="bg-emerald-600 text-white font-black px-4 py-1 tracking-widest uppercase text-[9px] md:text-[10px]">
                   GAMA MEDIA OK
@@ -95,13 +99,15 @@ export default function IACoursePromoPage() {
               </div>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] max-w-4xl mx-auto font-headline">
-            MAESTRÍA EN <span className="text-primary italic">IA Y EDICIÓN MÓVIL</span>
+            MAESTRÍA EN <span className="text-primary italic">IA Y EDICIÓN PRO</span>
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto font-medium leading-snug">
-            Logra todos los efectos del demo usando solo tu <span className="text-white font-bold">celular</span>. El futuro de la edición está en tus manos.
+            Logra todos los efectos de los demos realizando el curso <span className="text-white font-bold">100% con tu teléfono, tablet u ordenador</span>. El futuro de la edición está en tus manos.
           </p>
+
+          <IaLaunchCountdown variant="hero" className="pt-1" />
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-4 md:pt-5 w-full max-w-lg mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2 md:pt-3 w-full max-w-lg mx-auto">
             <Button onClick={handleInscribe} size="lg" className="h-14 w-full px-8 md:px-10 rounded-2xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:scale-105 transition-all">
                 {isMember ? "INSCRIBIRSE AHORA" : "INSCRIBIRSE AHORA (ACCESO PRO)"}
             </Button>
@@ -109,25 +115,30 @@ export default function IACoursePromoPage() {
                 <Link href="#detalles">Ver Programa Detallado</Link>
             </Button>
           </div>
+
+          {/* DEMOS 2x2 EN EL HERO */}
+          <div className="max-w-3xl mx-auto w-full pt-4 md:pt-6">
+            <IaDemosCarousel variant="hero" />
+          </div>
         </div>
       </section>
 
       {/* DETALLES DEL CURSO */}
-      <section id="detalles" className="container mx-auto py-16 md:py-24 px-4 md:px-6 space-y-20 md:space-y-24">
+      <section id="detalles" className="container mx-auto py-14 md:py-20 px-4 md:px-6 space-y-16 md:space-y-20">
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
               <div className="space-y-6 md:space-y-8">
                   <div className="space-y-4 text-center lg:text-left">
                       <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tighter leading-tight">EL MIÉRCOLES COMIENZA <span className="text-primary">TU NUEVA ERA</span></h2>
                       <p className="text-sm md:text-base text-gray-400 font-normal leading-relaxed">
-                          Este 25 de noviembre liberamos el primer curso grabado íntegramente desde un teléfono. Aprenderás a integrar IA avanzada en tus ediciones móviles para lograr resultados cinematográficos en 4K.
+                          Este miércoles 25 de noviembre a las 12:00 PM (hora Colombia) liberamos este curso diseñado para que puedas realizarlo 100% desde tu teléfono, tablet u ordenador, integrando IA avanzada para lograr resultados cinematográficos en 4K.
                       </p>
                   </div>
                   <div className="space-y-4">
                       {[
-                          { icon: Smartphone, title: "Edición 100% Móvil", text: "Clases grabadas y ejecutadas desde un celular para máxima accesibilidad." },
+                          { icon: Smartphone, title: "100% Teléfono, Tablet u Ordenador", text: "Realiza todas las clases y proyectos desde el dispositivo que prefieras: celular, tablet o computadora." },
                           { icon: TabletSmartphone, title: "Gama Media OK", text: "Optimizado para funcionar en dispositivos estándar sin bloqueos." },
-                          { icon: Zap, title: "Lanzamiento 25 Nov", text: "Material exclusivo que se publicará a mediados de este miércoles." },
+                          { icon: Zap, title: "Lanzamiento 25 Nov · 12:00 PM", text: "Material exclusivo que se libera este miércoles a las 12 del mediodía hora Colombia." },
                       ].map((feature, i) => (
                           <div key={i} className="flex items-start gap-4 p-5 md:p-6 bg-white/5 rounded-2xl md:rounded-3xl border border-white/5 hover:border-primary/30 transition-colors group">
                               <feature.icon className="h-7 w-7 md:h-8 md:w-8 text-primary shrink-0 group-hover:scale-110 transition-transform" />
@@ -190,11 +201,12 @@ export default function IACoursePromoPage() {
                 <div className="absolute top-0 right-0 p-10 opacity-10 hidden md:block">
                     <Smartphone className="h-64 w-64 text-primary" />
                 </div>
-                <Badge className="mb-4 md:mb-5 bg-yellow-500 text-black font-black uppercase tracking-widest text-[9px] md:text-xs">LANZAMIENTO: 25 NOVIEMBRE</Badge>
+                <Badge className="mb-4 md:mb-5 bg-yellow-500 text-black font-black uppercase tracking-widest text-[9px] md:text-xs">LANZAMIENTO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA</Badge>
                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase mb-4 md:mb-5 text-white leading-tight tracking-tighter max-w-3xl mx-auto">EL MIÉRCOLES CAMBIA TU FORMA DE CREAR</h2>
-                <p className="text-sm md:text-lg text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto font-medium leading-snug">
-                    Accede a toda la formación móvil con tu membresía VIP. Únete ahora para recibir el aviso del lanzamiento.
+                <p className="text-sm md:text-lg text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto font-medium leading-snug">
+                    Realiza el curso 100% desde tu teléfono, tablet u ordenador con tu membresía VIP. Únete ahora para recibir el aviso del lanzamiento.
                 </p>
+                <IaLaunchCountdown variant="compact" className="mb-8" />
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <Button onClick={handleInscribe} size="lg" className="h-12 md:h-14 px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all">
                          {isMember ? "IR AL CANAL WHATSAPP" : "INSCRIBIRSE AHORA"}

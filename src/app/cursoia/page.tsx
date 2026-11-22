@@ -17,6 +17,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { IaDemosCarousel } from '@/components/ia-demos-carousel';
 
 type LessonStatus = 'publicado' | 'entregado' | 'pendiente' | 'cotizado';
 
@@ -154,6 +155,10 @@ function ExclusiveCourseDashboard() {
           Domina Blender, After Effects, Premiere y Filmora, y explora todas las IAs de generación de imagen y video para crear Motion Graphics y diseños impactantes.
         </p>
       </header>
+
+      <section className="mb-12 rounded-[2rem] border border-primary/25 bg-[#020617] p-5 md:p-8 shadow-2xl">
+        <IaDemosCarousel />
+      </section>
 
       <main className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {modules.map((module) => (

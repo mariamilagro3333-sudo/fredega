@@ -68,7 +68,7 @@ export default function MembershipPage() {
             POTENCIA TU <br/><span className="text-primary">CREATIVIDAD AL MÁXIMO</span>
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto font-medium">
-            Descarga la biblioteca más grande de recursos y domina la IA móvil.
+            Descarga la biblioteca más grande de recursos y domina la IA 100% desde tu teléfono, tablet u ordenador.
           </p>
           <div className="pt-3">
             <Button asChild size="lg" className="h-14 w-full sm:w-auto px-8 md:px-10 rounded-2xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-xl hover:scale-105 transition-all">

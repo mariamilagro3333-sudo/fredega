@@ -19,6 +19,8 @@ import { EntryDetailDialog } from '@/components/entry-detail-dialog';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { useInscribe } from '@/components/inscribe-context';
+import { IaDemosCarousel } from '@/components/ia-demos-carousel';
+import { IaLaunchCountdown } from '@/components/ia-launch-countdown';
 import { cn } from '@/lib/utils';
 
 const categories = ['Todas', 'Google AI', 'Adobe Suite', 'CapCut Pro', 'Filmora IA', 'Davinci Resolve'] as const;
@@ -68,17 +70,17 @@ export default function AprendePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/20 to-[#020617]" />
         
-        <div className="container relative z-10 px-4 text-center space-y-8 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-          <div className="flex flex-col items-center gap-4">
-              <Badge className="bg-yellow-500 text-black font-black px-6 py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_20px_rgba(234,179,8,0.4)]">
-                ESTRENO: MIÉRCOLES 25 DE NOVIEMBRE
+        <div className="container relative z-10 px-4 text-center space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+          <div className="flex flex-col items-center gap-3">
+              <Badge className="bg-yellow-500 text-black font-black px-5 py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_20px_rgba(234,179,8,0.4)] text-[10px] md:text-xs">
+                ESTRENO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA
               </Badge>
-              <Badge className="bg-primary text-white font-black px-6 py-1.5 tracking-widest uppercase shadow-[0_0_20px_rgba(30,144,255,0.3)]">
-                MAESTRÍA IA MÓVIL 2026
+              <Badge className="bg-primary text-white font-black px-5 py-1.5 tracking-widest uppercase shadow-[0_0_20px_rgba(30,144,255,0.3)] text-[10px] md:text-xs">
+                MAESTRÍA IA 2026
               </Badge>
               <div className="flex flex-wrap justify-center gap-2">
                 <Badge variant="outline" className="border-yellow-500 text-yellow-500 font-black px-4 py-1.5 tracking-widest uppercase bg-yellow-500/10 text-[10px] md:text-xs">
-                  <Smartphone className="mr-2 h-4 w-4" /> CURSO 100% EN CELULAR
+                  <Smartphone className="mr-2 h-4 w-4" /> 100% TELÉFONO, TABLET U ORDENADOR
                 </Badge>
                 <Badge className="bg-emerald-600 text-white font-black px-4 py-1.5 tracking-widest uppercase text-[10px] md:text-xs">
                   GAMA MEDIA OK
@@ -86,13 +88,15 @@ export default function AprendePage() {
               </div>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] max-w-4xl mx-auto font-headline">
-            DOMINA LA <span className="text-primary italic">IA EN TU CELULAR</span>
+            DOMINA LA <span className="text-primary italic">IA EN CUALQUIER DISPOSITIVO</span>
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto font-medium leading-snug">
-            Aprende a crear todos los efectos cinematográficos usando solo tu <span className="text-white font-bold">teléfono</span>. Únete hoy para el lanzamiento de este miércoles.
+            Aprende a crear efectos cinematográficos realizando el curso <span className="text-white font-bold">100% con tu teléfono, tablet u ordenador</span>. Únete hoy para el lanzamiento de este miércoles al mediodía.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-4">
+          <IaLaunchCountdown variant="hero" />
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2">
             <button 
                 onClick={handleInscribe} 
                 className={cn(
@@ -108,7 +112,12 @@ export default function AprendePage() {
             </Button>
           </div>
 
-          <div className="flex justify-center gap-4 md:gap-6 pt-4 flex-wrap">
+          {/* DEMOS 2x2 EN EL HERO */}
+          <div className="max-w-3xl mx-auto w-full pt-4">
+            <IaDemosCarousel variant="hero" />
+          </div>
+
+          <div className="flex justify-center gap-4 md:gap-6 pt-2 flex-wrap">
               <div className="flex flex-col items-center gap-2 text-primary">
                   <div className="p-3 md:p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
                       <Smartphone className="h-6 w-6 md:h-8 md:w-8" />
@@ -131,7 +140,7 @@ export default function AprendePage() {
         </div>
       </section>
 
-      <div className="container mx-auto py-12 px-4 md:px-6 space-y-20">
+      <div className="container mx-auto py-12 px-4 md:px-6 space-y-16">
         
         {/* FILTROS DE CATEGORÍA */}
         <div className="flex justify-center">

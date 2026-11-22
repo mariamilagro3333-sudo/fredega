@@ -21,6 +21,8 @@ import { SuperPackPortal } from '@/components/super-pack-portal';
 import { Badge } from '@/components/ui/badge';
 import { useAuth } from '@/context/auth-context';
 import { useInscribe } from '@/components/inscribe-context';
+import { IaDemosCarousel } from '@/components/ia-demos-carousel';
+import { IaLaunchCountdown } from '@/components/ia-launch-countdown';
 
 const serviceGridItems = [
     { icon: UserCheck, title: "Cursos personalizados", href: "/servicios#cursos-personalizados-anchor" },
@@ -35,7 +37,7 @@ const courseList = [
     { 
         icon: BrainCircuit, 
         title: "Inteligencia Artificial", 
-        description: "Domina herramientas de IA enfocadas en edición y producción de efectos visuales desde el celular.", 
+        description: "Domina herramientas de IA enfocadas en edición y producción de efectos visuales 100% con tu teléfono, tablet u ordenador.", 
         href: "/ia" 
     },
     { 
@@ -137,9 +139,12 @@ function HomePageContent() {
             </div>
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
                 <div className="space-y-3 text-center md:text-left">
-                    <Badge className="bg-yellow-500 text-black font-black uppercase text-[10px] md:text-xs tracking-widest px-3 py-1">PUBLICACIÓN: 25 NOVIEMBRE</Badge>
-                    <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-tight">MAESTRÍA EN IA CON CELULAR</h2>
-                    <p className="text-sm md:text-base text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento sin necesidad de PC. Disponible para miembros PRO este miércoles.</p>
+                    <Badge className="bg-yellow-500 text-black font-black uppercase text-[10px] md:text-xs tracking-widest px-3 py-1">LANZAMIENTO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA</Badge>
+                    <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-tight">MAESTRÍA EN IA: TELÉFONO, TABLET U ORDENADOR</h2>
+                    <p className="text-sm md:text-base text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento realizando el curso 100% desde tu teléfono, tablet u ordenador. Disponible para miembros PRO este miércoles al mediodía.</p>
+                    <div className="pt-1">
+                      <IaLaunchCountdown variant="compact" align="left" />
+                    </div>
                 </div>
                 <Button
                   size="lg"
@@ -147,10 +152,14 @@ function HomePageContent() {
                     e.stopPropagation();
                     handleInscribe();
                   }}
-                  className="h-12 md:h-14 w-full md:w-auto px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl"
+                  className="h-12 md:h-14 w-full md:w-auto px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl shrink-0"
                 >
                     Inscribirse Ahora <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
+            </div>
+
+            <div className="relative z-10 mt-8 pt-8 border-t border-white/10">
+              <IaDemosCarousel variant="compact" />
             </div>
         </Card>
       </section>
