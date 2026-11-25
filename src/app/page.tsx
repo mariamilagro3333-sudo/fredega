@@ -22,7 +22,7 @@ import { Badge } from '@/components/ui/badge';
 import { useAuth } from '@/context/auth-context';
 import { useInscribe } from '@/components/inscribe-context';
 import { IaDemosCarousel } from '@/components/ia-demos-carousel';
-import { IaLaunchCountdown } from '@/components/ia-launch-countdown';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 
 const serviceGridItems = [
     { icon: UserCheck, title: "Cursos personalizados", href: "/servicios#cursos-personalizados-anchor" },
@@ -139,12 +139,9 @@ function HomePageContent() {
             </div>
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
                 <div className="space-y-3 text-center md:text-left">
-                    <Badge className="bg-yellow-500 text-black font-black uppercase text-[10px] md:text-xs tracking-widest px-3 py-1">LANZAMIENTO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA</Badge>
+                    <Badge className="bg-emerald-500 text-black font-black uppercase text-[10px] md:text-xs tracking-widest px-3 py-1">¡CURSO YA DISPONIBLE PARA DESCARGAR!</Badge>
                     <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-tight">MAESTRÍA EN IA: TELÉFONO, TABLET U ORDENADOR</h2>
-                    <p className="text-sm md:text-base text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento realizando el curso 100% desde tu teléfono, tablet u ordenador. Disponible para miembros PRO este miércoles al mediodía.</p>
-                    <div className="pt-1">
-                      <IaLaunchCountdown variant="compact" align="left" />
-                    </div>
+                    <p className="text-sm md:text-base text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento realizando el curso 100% desde tu teléfono, tablet u ordenador. Ya disponible para descargar para miembros PRO.</p>
                 </div>
                 <Button
                   size="lg"
@@ -154,7 +151,15 @@ function HomePageContent() {
                   }}
                   className="h-12 md:h-14 w-full md:w-auto px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl shrink-0"
                 >
-                    Inscribirse Ahora <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                    {isMember ? (
+                      <>
+                        <Download className="mr-2 h-4 w-4 md:h-5 md:w-5" /> Descargar y realizar curso
+                      </>
+                    ) : (
+                      <>
+                        Inscribirse Ahora <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                      </>
+                    )}
                 </Button>
             </div>
 
@@ -240,9 +245,9 @@ function HomePageContent() {
                         <h4 className="text-sm md:text-base font-black uppercase tracking-widest text-white leading-tight drop-shadow-lg">
                             MAESTRÍA EN EDICIÓN <br/> IA MÓVIL 2026
                         </h4>
-                        <p className="text-[9px] md:text-[10px] font-bold text-primary-foreground/80 uppercase tracking-tighter">LANZAMIENTO: 25 DE NOVIEMBRE</p>
+                        <p className="text-[9px] md:text-[10px] font-bold text-primary-foreground/80 uppercase tracking-tighter">YA DISPONIBLE PARA DESCARGAR</p>
                     </div>
-                    <Badge className="mt-3 bg-primary text-primary-foreground text-[8px] md:text-[9px] font-black uppercase px-3 py-0.5 tracking-wider border-none animate-pulse">ESTRENO PRÓXIMO</Badge>
+                    <Badge className="mt-3 bg-emerald-500 text-black text-[8px] md:text-[9px] font-black uppercase px-3 py-0.5 tracking-wider border-none">DISPONIBLE AHORA</Badge>
                 </div>
             </Card>
 
@@ -376,6 +381,10 @@ function HomePageContent() {
                 </Button>
               </div>
             </div>
+            <IaCourseSpotlight
+              variant="compact"
+              onNavigate={() => setSelectedYoutubeVideo(null)}
+            />
           </div>
         </DialogContent>
       </Dialog>

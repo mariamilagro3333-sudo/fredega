@@ -22,6 +22,7 @@ import {
 import { CourseSelectorOverlay } from '@/components/course-selector-overlay';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 
 const coursesData: Course[] = [
   {
@@ -261,7 +262,7 @@ export default function AeCoursesPage() {
   
   const handleCourseSelect = (courseId: string) => {
     if (courseId === 'ae-ia') {
-      router.push('/cursos?show-ia-details=true#ia-promo-banner');
+      router.push('/ia');
       return;
     }
     setIsLoading(true);
@@ -297,7 +298,10 @@ export default function AeCoursesPage() {
         onCourseSelect={handleCourseSelect} 
       />
 
-      <div className="container mx-auto py-12 px-6 md:px-12">
+      <div className="container mx-auto py-12 px-6 md:px-12 space-y-10">
+        <div className="max-w-5xl mx-auto">
+          <IaCourseSpotlight variant="hero-strip" />
+        </div>
         {!showSelector && (
             <div className="mb-8 flex items-center justify-between max-w-5xl mx-auto">
                 <Button 

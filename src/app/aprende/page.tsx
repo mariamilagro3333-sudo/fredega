@@ -20,7 +20,7 @@ import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { useInscribe } from '@/components/inscribe-context';
 import { IaDemosCarousel } from '@/components/ia-demos-carousel';
-import { IaLaunchCountdown } from '@/components/ia-launch-countdown';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 import { cn } from '@/lib/utils';
 
 const categories = ['Todas', 'Google AI', 'Adobe Suite', 'CapCut Pro', 'Filmora IA', 'Davinci Resolve'] as const;
@@ -72,8 +72,8 @@ export default function AprendePage() {
         
         <div className="container relative z-10 px-4 text-center space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
           <div className="flex flex-col items-center gap-3">
-              <Badge className="bg-yellow-500 text-black font-black px-5 py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_20px_rgba(234,179,8,0.4)] text-[10px] md:text-xs">
-                ESTRENO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA
+              <Badge className="bg-emerald-500 text-black font-black px-5 py-1.5 tracking-widest uppercase shadow-[0_0_20px_rgba(16,185,129,0.4)] text-[10px] md:text-xs">
+                ¡CURSO YA DISPONIBLE PARA DESCARGAR!
               </Badge>
               <Badge className="bg-primary text-white font-black px-5 py-1.5 tracking-widest uppercase shadow-[0_0_20px_rgba(30,144,255,0.3)] text-[10px] md:text-xs">
                 MAESTRÍA IA 2026
@@ -91,10 +91,8 @@ export default function AprendePage() {
             DOMINA LA <span className="text-primary italic">IA EN CUALQUIER DISPOSITIVO</span>
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto font-medium leading-snug">
-            Aprende a crear efectos cinematográficos realizando el curso <span className="text-white font-bold">100% con tu teléfono, tablet u ordenador</span>. Únete hoy para el lanzamiento de este miércoles al mediodía.
+            Aprende a crear efectos cinematográficos realizando el curso <span className="text-white font-bold">100% con tu teléfono, tablet u ordenador</span>. Ya disponible para descargar.
           </p>
-
-          <IaLaunchCountdown variant="hero" />
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2">
             <button 
@@ -104,11 +102,20 @@ export default function AprendePage() {
                     isMember ? "bg-emerald-600 hover:bg-emerald-700" : "bg-primary hover:bg-primary/90"
                 )}
             >
-                {isMember ? "INSCRIBIRSE AL LANZAMIENTO" : "INSCRIBIRSE (ACCESO PRO)"}
-                <ArrowRight className="ml-2.5 h-4 w-4 md:h-5 md:w-5" />
+                {isMember ? (
+                  <>
+                    <Download className="mr-2.5 h-4 w-4 md:h-5 md:w-5" />
+                    DESCARGAR Y REALIZAR CURSO
+                  </>
+                ) : (
+                  <>
+                    INSCRIBIRSE AHORA
+                    <ArrowRight className="ml-2.5 h-4 w-4 md:h-5 md:w-5" />
+                  </>
+                )}
             </button>
             <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs md:text-sm backdrop-blur-md shadow-xl w-full sm:w-auto">
-                <Link href="/ia">Ver Programa Detallado</Link>
+                <Link href="/ia#temario">Ver Programa Detallado</Link>
             </Button>
           </div>
 
@@ -288,6 +295,10 @@ export default function AprendePage() {
                 </Button>
               </div>
             </div>
+            <IaCourseSpotlight
+              variant="compact"
+              onNavigate={() => setSelectedVideo(null)}
+            />
           </div>
         </DialogContent>
       </Dialog>

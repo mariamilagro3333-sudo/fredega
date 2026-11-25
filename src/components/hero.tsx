@@ -2,11 +2,11 @@
 
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { Rocket, Sparkles, Crown, Smartphone, Tablet, Laptop, ArrowRight } from 'lucide-react';
+import { Rocket, Sparkles, Crown, Smartphone, Tablet, Laptop, ArrowRight, Download } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { useInscribe } from './inscribe-context';
 import { IaDemosCarousel } from './ia-demos-carousel';
-import { IaLaunchCountdown } from './ia-launch-countdown';
+import { cn } from '@/lib/utils';
 
 export function Hero() {
   const { handleInscribe, isMember } = useInscribe();
@@ -26,8 +26,8 @@ export function Hero() {
       {/* CONTENIDO PRINCIPAL */}
       <div className="container relative z-10 px-4 text-center space-y-5 md:space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
         <div className="flex flex-col items-center gap-2.5 mb-2">
-          <Badge className="bg-primary text-white font-black px-4 py-1 md:px-5 md:py-1.5 tracking-widest uppercase animate-pulse shadow-[0_0_30px_rgba(30,144,255,0.5)] rounded-full text-[10px] md:text-xs">
-             LANZAMIENTO: MIÉRCOLES 25 NOV · 12:00 PM COLOMBIA
+          <Badge className="bg-emerald-500 text-black font-black px-4 py-1 md:px-5 md:py-1.5 tracking-widest uppercase shadow-[0_0_30px_rgba(16,185,129,0.45)] rounded-full text-[10px] md:text-xs">
+             ¡CURSO YA DISPONIBLE PARA DESCARGAR!
           </Badge>
           <div className="px-4 py-1.5 md:px-5 md:py-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center gap-2">
              <Smartphone className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary shrink-0" />
@@ -46,20 +46,31 @@ export function Hero() {
           Crea efectos de cine y animaciones 4K. Realiza el curso <span className="text-white font-bold underline decoration-primary underline-offset-4">100% con tu teléfono, tablet u ordenador</span>.
         </p>
 
-        {/* CONTEO REGRESIVO DEL LANZAMIENTO */}
-        <IaLaunchCountdown variant="hero" className="pt-1" />
-
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2 md:pt-3">
           <Button 
             onClick={handleInscribe}
             size="lg" 
-            className="h-14 w-full sm:w-auto px-8 md:px-10 rounded-2xl bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-[0_20px_50px_rgba(30,144,255,0.3)] hover:scale-105 transition-all"
+            className={cn(
+              "h-14 w-full sm:w-auto px-8 md:px-10 rounded-2xl text-white font-black uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all",
+              isMember
+                ? "bg-emerald-600 hover:bg-emerald-700 shadow-[0_20px_50px_rgba(16,185,129,0.3)]"
+                : "bg-primary hover:bg-primary/90 shadow-[0_20px_50px_rgba(30,144,255,0.3)]"
+            )}
           >
-            {isMember ? "INSCRIBIRSE AHORA" : "INSCRIBIRSE (ACCESO PRO)"}
-            <ArrowRight className="ml-2.5 h-4 w-4 md:h-5 md:w-5" />
+            {isMember ? (
+              <>
+                <Download className="mr-2.5 h-4 w-4 md:h-5 md:w-5" />
+                DESCARGAR Y REALIZAR CURSO
+              </>
+            ) : (
+              <>
+                INSCRIBIRSE AHORA
+                <ArrowRight className="ml-2.5 h-4 w-4 md:h-5 md:w-5" />
+              </>
+            )}
           </Button>
           <Button asChild size="lg" variant="outline" className="h-14 w-full sm:w-auto px-7 md:px-8 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs backdrop-blur-md">
-            <Link href="/ia">Ver Temario del Curso</Link>
+            <Link href="/ia#temario">Ver Temario del Curso</Link>
           </Button>
         </div>
 

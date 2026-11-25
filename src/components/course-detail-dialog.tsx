@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from './ui/dropdown-menu';
 import { useAuth } from '@/context/auth-context';
+import { IaCourseSpotlight } from './ia-course-spotlight';
 
 interface CourseDetailDialogProps {
   course: Course | null;
@@ -79,6 +80,10 @@ export function CourseDetailDialog({ course, isOpen, onOpenChange }: CourseDetai
                    </Button>
                 </AlertDescription>
             </Alert>
+            <IaCourseSpotlight
+              variant="compact"
+              onNavigate={() => onOpenChange(false)}
+            />
           </div>
         </DialogContent>
       </Dialog>
@@ -177,6 +182,10 @@ export function CourseDetailDialog({ course, isOpen, onOpenChange }: CourseDetai
                    </Button>
                 </AlertDescription>
             </Alert>
+            <IaCourseSpotlight
+              variant="compact"
+              onNavigate={() => onOpenChange(false)}
+            />
         </div>
       </DialogContent>
     </Dialog>

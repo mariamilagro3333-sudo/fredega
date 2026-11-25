@@ -152,7 +152,7 @@ export default function MembershipPage() {
                 {[
                     { q: "¿Es un pago único?", a: "Los pagos por Hotmart son suscripciones recurrentes. Los pagos manuales (Nequi, etc.) son pagos únicos por el periodo contratado." },
                     { q: "¿Cómo accedo a los Súper Packs?", a: "Una vez seas miembro, al ingresar a la plataforma, verás los botones de descarga de Google Drive activos en todas las categorías premium." },
-                    { q: "¿El curso de IA tiene costo adicional?", a: "No, para los miembros PRO, el curso de IA 2026 estará incluido sin costo adicional cuando se publique este miércoles." }
+                    { q: "¿El curso de IA tiene costo adicional?", a: "No, para los miembros PRO el curso de IA 2026 ya está disponible para descargar sin costo adicional." }
                 ].map((faq, index) => (
                     <AccordionItem key={index} value={`faq-${index}`} className="border-white/10 bg-white/5 rounded-2xl px-5 md:px-6">
                         <AccordionTrigger className="text-left font-bold text-base md:text-lg text-white hover:no-underline py-5">{faq.q}</AccordionTrigger>

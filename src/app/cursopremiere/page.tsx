@@ -11,6 +11,7 @@ import { Youtube, Download, Star, Gem, Film, CheckCircle } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 
 const premiereCourseData: Course = {
     id: 'pr',
@@ -60,7 +61,8 @@ export default function PremiereCoursePage() {
   const isMember = rol === 'miembro' || rol === 'admin';
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6">
+    <div className="container mx-auto py-12 px-4 md:px-6 space-y-10">
+      <IaCourseSpotlight variant="hero-strip" />
       <header className="text-center mb-12">
         <div className="flex justify-center items-center gap-4 mb-4">
             {premiereCourseData.icon && <premiereCourseData.icon className="h-12 w-12 text-primary" />}

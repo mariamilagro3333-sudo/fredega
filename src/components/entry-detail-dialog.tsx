@@ -38,6 +38,7 @@ import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getRecentContent } from '@/lib/all-content';
 import Image from 'next/image';
+import { IaCourseSpotlight } from './ia-course-spotlight';
 
 interface EntryDetailDialogProps {
   entry: Entry | null;
@@ -262,6 +263,12 @@ export function EntryDetailDialog({ entry, isOpen, onOpenChange }: EntryDetailDi
 
                 <DownloadSection />
 
+                {/* CURSO DE IA INTEGRADO EN CADA TUTORIAL */}
+                <IaCourseSpotlight
+                  variant="compact"
+                  onNavigate={() => onOpenChange(false)}
+                />
+
                 <div className="flex flex-wrap items-center gap-3 pt-4 border-t">
                     <Button onClick={handleCopyLink} variant="outline" size="sm" className="rounded-full font-normal">
                         <Sparkles className="mr-2 h-4 w-4" /> Copiar Enlace
@@ -281,6 +288,11 @@ export function EntryDetailDialog({ entry, isOpen, onOpenChange }: EntryDetailDi
           </div>
 
           <div className="hidden md:block md:col-span-1 bg-muted/30 p-6 md:p-8 space-y-8">
+            <IaCourseSpotlight
+              variant="sidebar"
+              onNavigate={() => onOpenChange(false)}
+            />
+
             {isMember ? (
                 <Card className="bg-primary/10 border-primary/20 shadow-none">
                     <CardContent className="p-4 text-center space-y-3">

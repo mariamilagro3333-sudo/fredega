@@ -23,6 +23,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { IaPromoBanner } from '@/components/ia-promo-banner';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 import { allProducts, getSmartShuffledProducts } from '@/lib/all-content';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
@@ -138,7 +139,11 @@ function ContenidosPageContent() {
 
   return (
     <div className="min-h-screen bg-[#020617] text-white flex flex-col">
-      <div className="container mx-auto py-10 px-4 md:px-6 flex-grow space-y-12">
+      <div className="container mx-auto py-8 md:py-10 px-4 md:px-6 flex-grow space-y-12">
+        {/* CENTRO PRINCIPAL: CURSO DE INTELIGENCIA ARTIFICIAL */}
+        <section aria-label="Curso principal de Inteligencia Artificial">
+          <IaCourseSpotlight variant="hero-strip" />
+        </section>
         
         {/* SUPER PACK SECTION AT TOP */}
         <section id="portal-recursos" className="w-full space-y-8 scroll-mt-28">
@@ -352,9 +357,9 @@ function ContenidosPageContent() {
                             <h4 className="text-sm md:text-base font-black uppercase tracking-widest text-white leading-tight drop-shadow-lg">
                                 MAESTRÍA EN EDICIÓN <br/> INTELIGENCIA ARTIFICIAL 2026
                             </h4>
-                            <p className="text-[10px] font-bold text-primary-foreground/80 uppercase tracking-tighter">RESULTADOS REALES EN 4K</p>
+                            <p className="text-[10px] font-bold text-primary-foreground/80 uppercase tracking-tighter">YA DISPONIBLE PARA DESCARGAR</p>
                         </div>
-                        <Badge className="mt-3 bg-primary text-primary-foreground text-[9px] font-black uppercase px-3 py-0.5 tracking-wider border-none">MUY PRONTO</Badge>
+                        <Badge className="mt-3 bg-emerald-500 text-black text-[9px] font-black uppercase px-3 py-0.5 tracking-wider border-none">DISPONIBLE AHORA</Badge>
                     </div>
                 </Card>
 

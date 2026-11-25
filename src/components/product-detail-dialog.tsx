@@ -30,6 +30,7 @@ import { getRecentContent } from '@/lib/all-content';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
+import { IaCourseSpotlight } from './ia-course-spotlight';
 
 interface ProductDetailDialogProps {
   product: Product | null;
@@ -168,6 +169,12 @@ export function ProductDetailDialog({ product, isOpen, onOpenChange, onProductSe
                     )}
                 </div>
 
+                {/* CURSO DE IA INTEGRADO EN CADA PRODUCTO */}
+                <IaCourseSpotlight
+                  variant="compact"
+                  onNavigate={() => onOpenChange(false)}
+                />
+
                 <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/5">
                     <Button onClick={handleCopyLink} variant="ghost" className="text-[10px] font-black uppercase tracking-widest h-10 px-6 rounded-full hover:bg-white/5">
                         <Sparkles className="mr-2 h-3 w-3" /> Copiar Enlace
@@ -181,7 +188,13 @@ export function ProductDetailDialog({ product, isOpen, onOpenChange, onProductSe
             </div>
           </div>
 
-          <aside className="bg-white/[0.02] p-6 md:p-10 space-y-10">
+          <aside className="bg-white/[0.02] p-6 md:p-10 space-y-8">
+            {/* CENTRO PRINCIPAL: CURSO DE IA */}
+            <IaCourseSpotlight
+              variant="sidebar"
+              onNavigate={() => onOpenChange(false)}
+            />
+
             {/* PANEL DE CONVERSIÓN MASIVA */}
             <div className={cn(
                 "p-8 rounded-[2rem] border-2 space-y-6 text-center shadow-2xl relative overflow-hidden group",

@@ -38,7 +38,7 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 
 const coursesMenu = [
-    { icon: BrainCircuit, title: "IA con programas de edición", href: "/cursos?show-ia-details=true#ia-promo-banner", description: "Domina la IA integrada en After Effects, Premiere y Filmora." },
+    { icon: BrainCircuit, title: "Curso IA y Edición PRO", href: "/ia", description: "Ya disponible para descargar. Funciona con celular, tablet o PC y cualquier editor básico." },
     { logo: "Ae", title: "Curso After Effects", href: "/cursos#ae", description: "Conviértete en un profesional de la animación y VFX." },
     { icon: Film, title: "Curso Adobe Premiere", href: "/cursos#pr", description: "Domina la edición de video profesional desde cero." },
     { icon: Scan, title: "Curso Mocha Pro", href: "/cursos#mocha", description: "Conviértete en un experto del trackeo planar." },
@@ -133,9 +133,17 @@ export function Header() {
                         </SheetHeader>
                         <nav className="flex flex-col p-6 gap-y-5 flex-grow overflow-y-auto">
                             <SearchPopover showText={true} />
+                            <SheetClose asChild>
+                                <Link href="/ia" className="flex items-center justify-between gap-2 rounded-xl border border-primary/40 bg-primary/15 px-3.5 py-2.5 text-base font-black text-white uppercase">
+                                    <span className="flex items-center gap-2.5">
+                                        <BrainCircuit className="h-5 w-5 text-primary" />
+                                        Curso IA
+                                    </span>
+                                    <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-[9px] font-black text-black">DISPONIBLE</span>
+                                </Link>
+                            </SheetClose>
                             <SheetClose asChild><Link href="/" className="flex items-center gap-3 text-lg font-bold uppercase text-primary"><Home className="h-5 w-5" /> Inicio</Link></SheetClose>
                             <SheetClose asChild><Link href="/servicios" className="flex items-center gap-3 text-lg font-medium uppercase"><Wrench className="h-5 w-5 text-primary" /> Servicios</Link></SheetClose>
-                            <SheetClose asChild><Link href="/ia" className="flex items-center gap-3 text-lg font-bold text-primary uppercase"><BrainCircuit className="h-5 w-5" /> Inteligencia Artificial</Link></SheetClose>
                             <SheetClose asChild><Link href="/contenidos" className="flex items-center gap-3 text-lg font-bold text-primary uppercase"><Download className="h-5 w-5" /> Descargar Contenidos</Link></SheetClose>
                             <SheetClose asChild><Link href="/aprende" className="flex items-center gap-3 text-lg font-medium uppercase"><PlayCircle className="h-5 w-5 text-primary" /> Aprende Aquí</Link></SheetClose>
                             <SheetClose asChild><Link href="/cursos" className="flex items-center gap-3 text-lg font-medium uppercase"><Laptop className="h-5 w-5 text-primary" /> Cursos</Link></SheetClose>
@@ -224,11 +232,12 @@ export function Header() {
 
                     <Link href="/ia" className={cn(
                         navigationMenuTriggerStyle(), 
-                        "font-black text-primary bg-primary/5 uppercase text-[10px] xl:text-[11px] 2xl:text-[12px] tracking-widest px-2 xl:px-3 h-9 whitespace-nowrap"
+                        "font-black text-white bg-primary hover:bg-primary/90 hover:text-white uppercase text-[10px] xl:text-[11px] 2xl:text-[12px] tracking-widest px-3 xl:px-4 h-9 whitespace-nowrap shadow-[0_0_20px_rgba(30,144,255,0.4)]"
                     )}>
                         <BrainCircuit className="h-4 w-4 xl:mr-1.5" /> 
-                        <span className="hidden xl:inline">Inteligencia Artificial</span>
+                        <span className="hidden xl:inline">Curso IA</span>
                         <span className="inline xl:hidden">IA</span>
+                        <span className="ml-1.5 h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                     </Link>
 
                     <Link href="/contenidos" className={cn(

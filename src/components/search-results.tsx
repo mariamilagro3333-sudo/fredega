@@ -7,6 +7,7 @@ import { ProductCard } from './product-card';
 import { ProductDetailDialog } from './product-detail-dialog';
 import type { Product, Entry } from '@/types';
 import { allProducts } from '@/lib/all-content';
+import { IaCourseSpotlight } from './ia-course-spotlight';
 
 export function SearchResults() {
     const searchParams = useSearchParams();
@@ -28,11 +29,17 @@ export function SearchResults() {
     };
 
     if (!query) {
-        return <div className="text-center py-10">Ingresa un término de búsqueda para comenzar.</div>;
+        return (
+            <div className="space-y-8">
+                <IaCourseSpotlight variant="hero-strip" />
+                <div className="text-center py-10">Ingresa un término de búsqueda para comenzar.</div>
+            </div>
+        );
     }
 
     return (
         <div className="space-y-8">
+            <IaCourseSpotlight variant="hero-strip" />
             <p className="text-muted-foreground">
                 Se encontraron {results.length} resultados para "{query}"
             </p>

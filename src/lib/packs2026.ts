@@ -9,7 +9,7 @@ export const packs2026: Product[] = [
     videoUrl: 'https://media.fredegapro.com/01/catalogo/PANORAMICO2.mp4',
     downloadUrl: '/ia',
     categories: ['after-effects', 'premiere', 'davinci-resolve', 'exclusivos-miembros', 'packs'],
-    description: 'LANZAMIENTO: MIÉRCOLES 25 DE NOVIEMBRE. Domina la IA y la edición profesional directamente desde tu CELULAR. Logra todos los efectos pro sin necesidad de una computadora (opcional). Optimizado para teléfonos de gama media con resultados reales en 4K.',
+    description: '¡YA DISPONIBLE PARA DESCARGAR! Domina la IA y la edición profesional 100% desde tu teléfono, tablet u ordenador. Optimizado para dispositivos de gama media con resultados reales en 4K.',
     compatibility: 'Celulares Gama Media / Alta (iOS & Android)',
     resolution: '3840 x 2160 (4K Real Móvil)',
     fileSize: 'Curso Masivo enfocado en Celular',

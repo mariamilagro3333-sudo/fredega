@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ScrollAnchor } from '@/components/scroll-anchor';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -136,6 +137,9 @@ export default function ServicesPage() {
 
   return (
     <div className="container mx-auto py-10 px-4 md:px-6">
+      <section className="mb-12" aria-label="Curso principal de Inteligencia Artificial">
+        <IaCourseSpotlight variant="hero-strip" />
+      </section>
       
       <section className="mb-16">
         <div className="grid md:grid-cols-2 gap-8 items-center">

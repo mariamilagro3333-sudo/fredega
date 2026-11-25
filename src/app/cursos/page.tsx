@@ -22,6 +22,7 @@ import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, A
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { VideoPlayer } from '@/components/video-player';
 import { IaPromoBanner } from '@/components/ia-promo-banner';
+import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 
@@ -388,6 +389,11 @@ function CoursesPageContent() {
             </div>
         </section>
 
+        {/* IA PROMO BANNER — CENTRO PRINCIPAL DE LA WEB */}
+        <div className="mb-12">
+          <IaPromoBanner />
+        </div>
+
         {/* Header & Featured Banner */}
         <section className="container mx-auto px-4 md:px-6 py-12">
             <div className="text-center mb-12">
@@ -426,11 +432,6 @@ function CoursesPageContent() {
                 </div>
             </div>
         </section>
-
-        {/* IA PROMO BANNER */}
-        <div className="mb-16">
-          <IaPromoBanner />
-        </div>
 
         {/* PERSONALIZED COURSES */}
         <div className="mb-16">
@@ -530,6 +531,10 @@ function CoursesPageContent() {
                 </Button>
               </div>
             </div>
+            <IaCourseSpotlight
+              variant="compact"
+              onNavigate={() => setSelectedYoutubeVideo(null)}
+            />
           </div>
         </DialogContent>
       </Dialog>

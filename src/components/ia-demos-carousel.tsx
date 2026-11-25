@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Play, Sparkles } from 'lucide-react';
 import {
   Dialog,
@@ -16,37 +17,86 @@ export interface IaDemoVideo {
   id: string;
   title: string;
   description: string;
-  tag: string;
+  thumbnailUrl: string;
   videoUrl: string;
 }
 
 export const IA_DEMO_VIDEOS: IaDemoVideo[] = [
   {
+    id: 'efectos-visuales-con-videos',
+    title: 'Hacer efectos visuales con tus videos',
+    description: 'Integra efectos visuales cinematográficos de alto impacto con IA.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/campobatalla.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/campobatalla.mp4',
+  },
+  {
+    id: 'motion-graphics-informativo',
+    title: 'Hacer motion graphics informativo',
+    description: 'Crea animaciones informativas dinámicas y profesionales con IA.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/ramon.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/ramon.mp4',
+  },
+  {
+    id: 'videos-cinematograficos-ia',
+    title: 'Videos cinematográficos con IA',
+    description: 'Produce escenas con estética de cine y movimientos avanzados con IA.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/super.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/super.mp4',
+  },
+  {
     id: 'montajes-con-videos',
-    title: 'Hacer Montajes con Videos',
+    title: 'Hacer montajes con videos',
     description: 'Realiza montajes visuales y composiciones impactantes con IA.',
-    tag: 'Montajes VFX',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/montaje.jpg',
     videoUrl: 'https://media.fredegapro.com/01/ia/todo.mp4',
   },
   {
     id: 'publicidad-de-productos',
-    title: 'Publicidad de Productos',
+    title: 'Publicidad de productos',
     description: 'Crea anuncios y comerciales llamativos de productos con IA.',
-    tag: 'Publicidad',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/publicidad.jpg',
     videoUrl: 'https://media.fredegapro.com/01/ia/bbq.mp4',
   },
   {
-    id: 'motion-graphics-informativo',
-    title: 'Hacer Motion Graphics Informativo',
-    description: 'Crea animaciones informativas dinámicas y profesionales con IA.',
-    tag: 'Motion Graphics',
-    videoUrl: 'https://media.fredegapro.com/01/ia/ramon.mp4',
+    id: 'transiciones-con-ia',
+    title: 'Hacer transiciones con IA',
+    description: 'Genera transiciones fluidas y creativas entre escenas con IA.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/transiciones.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/transiciones.mp4',
+  },
+  {
+    id: 'personajes-consistentes-extender',
+    title: 'Personajes consistentes, extender videos y otras funciones',
+    description: 'Mantén personajes coherentes, extiende tomas y domina herramientas clave.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/personajes.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/todo.mp4',
+  },
+  {
+    id: 'filtros-con-ia',
+    title: 'Filtros con IA',
+    description: 'Transforma el estilo visual de tus grabaciones con filtros inteligentes.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/filtro.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/filtro.mp4',
+  },
+  {
+    id: 'subtitulos-dinamicos-ia',
+    title: 'Generar subtítulos dinámicos con IA',
+    description: 'Crea subtítulos animados en tendencia de forma rápida y automática.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/subtitulos.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/subtitulos.mp4',
+  },
+  {
+    id: 'beneficios-del-curso',
+    title: 'Beneficios del curso',
+    description: 'Conoce todo lo que lograrás y las ventajas de formarte en este curso.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/beneficios.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/beneficios.mp4',
   },
   {
     id: 'grafico-presentacion-informativa',
-    title: 'Gráfico y Presentación Informativa',
+    title: 'Gráfico y presentación informativa',
     description: 'Crea gráficos animados y presentaciones informativas con IA.',
-    tag: 'Presentación',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/informativo.jpg',
     videoUrl: 'https://media.fredegapro.com/01/ia/Tos.mp4',
   },
 ];
@@ -117,7 +167,7 @@ export function IaDemosCarousel({
         )}
       </div>
 
-      {/* Cuadrícula 2x2: dos videos arriba y dos abajo */}
+      {/* Cuadrícula de demos uno debajo del otro (2 columnas, sin carrusel) */}
       <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
         {IA_DEMO_VIDEOS.map((demo) => (
           <button
@@ -142,20 +192,18 @@ export function IaDemosCarousel({
               </h4>
             </div>
 
-            {/* Vista previa del video */}
+            {/* Miniatura personalizada del video */}
             <div className="relative aspect-video w-full bg-black overflow-hidden">
-              <video
-                src={`${demo.videoUrl}#t=0.5`}
-                preload="metadata"
-                muted
-                playsInline
-                onError={(e) => {
-                  console.error(`Error cargando vista previa de demo (${demo.videoUrl}):`, e);
-                }}
-                className="w-full h-full object-cover opacity-85 group-hover/card:opacity-100 group-hover/card:scale-[1.03] transition-all duration-500 pointer-events-none"
+              <Image
+                src={demo.thumbnailUrl}
+                alt={demo.title}
+                fill
+                referrerPolicy="no-referrer"
+                sizes="(max-width: 640px) 48vw, 450px"
+                className="object-cover opacity-90 group-hover/card:opacity-100 group-hover/card:scale-[1.04] transition-all duration-500"
               />
 
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/70 via-black/25 to-transparent group-hover/card:via-black/15 transition-colors">
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/65 via-black/20 to-transparent group-hover/card:via-black/10 transition-colors">
                 <span
                   className={cn(
                     'rounded-full bg-primary/95 text-white flex items-center justify-center shadow-[0_0_24px_rgba(30,144,255,0.65)] transition-transform duration-300 group-hover/card:scale-110',
@@ -199,6 +247,7 @@ export function IaDemosCarousel({
                 <video
                   key={selectedDemo.id}
                   src={selectedDemo.videoUrl}
+                  poster={selectedDemo.thumbnailUrl}
                   controls
                   autoPlay
                   playsInline
@@ -209,7 +258,7 @@ export function IaDemosCarousel({
                 />
               </div>
 
-              {/* Barra inferior para cambiar rápidamente entre los 4 demos */}
+              {/* Barra inferior para cambiar rápidamente entre los demos */}
               {IA_DEMO_VIDEOS.length > 1 && (
                 <div className="px-4 py-3 sm:px-6 bg-[#050a18] border-t border-white/10 flex items-center justify-between gap-3">
                   <Button
