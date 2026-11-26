@@ -4,9 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Info, CreditCard, Smartphone, Globe, ScrollText, AlertTriangle, Gift, Mail, MessageCircle, Building } from 'lucide-react';
+import { Info, CreditCard, Smartphone, Globe, ScrollText, AlertTriangle, Gift, Mail, MessageCircle, Building, FileText } from 'lucide-react';
 import { PaymentMethods } from '@/components/payment-methods';
 import { ScrollAnchor } from '@/components/scroll-anchor';
+import { IA_INSTRUCTIONS_PDF_URL } from '@/lib/ia-curriculum';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,6 +56,14 @@ export default function PaymentsPage() {
         <p className="text-lg text-muted-foreground mt-4">
           Tu acceso a contenido exclusivo de producción audiovisual con IA.
         </p>
+        <div className="mt-5">
+          <Button asChild variant="outline" size="lg" className="rounded-xl border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-bold">
+            <a href={IA_INSTRUCTIONS_PDF_URL} target="_blank" rel="noopener noreferrer">
+              <FileText className="mr-2 h-4 w-4" />
+              Descargar Instrucciones PDF para hacerse miembro
+            </a>
+          </Button>
+        </div>
       </section>
 
       <section className="mb-6 max-w-3xl mx-auto">
@@ -92,16 +101,16 @@ export default function PaymentsPage() {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-4">
-                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white">
+                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white h-auto py-3 whitespace-normal text-center">
                 <Link href={hotmartLinks.sixMonths} target="_blank" rel="noopener noreferrer">
-                    <CreditCard className="mr-2" />
-                    Suscripción Semestral ($15 USD)
+                    <CreditCard className="mr-2 shrink-0" />
+                    Suscripción 6 Meses ($15 dólares · $40.000 pesos colombianos)
                 </Link>
                 </Button>
-                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white">
+                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white h-auto py-3 whitespace-normal text-center">
                 <Link href={hotmartLinks.annual} target="_blank" rel="noopener noreferrer">
-                    <CreditCard className="mr-2" />
-                    Suscripción Anual ($22 USD)
+                    <CreditCard className="mr-2 shrink-0" />
+                    Suscripción 1 Año ($22 dólares · $60.000 pesos colombianos)
                 </Link>
                 </Button>
             </div>
@@ -119,11 +128,11 @@ export default function PaymentsPage() {
                 <AlertTitle className="font-bold text-yellow-400">¡OFERTA DE PAGO ÚNICO!</AlertTitle>
                 <AlertDescription>
                     <p className="mb-2 font-semibold">
-                        Si prefieres no usar suscripción y pagar una sola vez por Nequi, Daviplata o Western Union, ¡te duplicamos el tiempo de acceso!
+                        Si prefieres no usar suscripción y pagar una sola vez por Nequi, Bre-B, Daviplata o Western Union, ¡te duplicamos el tiempo de acceso!
                     </p>
                     <ul className="list-disc pl-5 mt-2 space-y-1">
-                        <li>Paga $15 USD (<strong>$40.000 COP</strong>) y recibe <strong>12 meses (1 Año completo)</strong>.</li>
-                        <li>Paga $22 USD (<strong>$90.000 COP</strong>) y recibe <strong>24 meses (2 Años completos)</strong>.</li>
+                        <li>Paga $15 dólares (<strong>$40.000 pesos colombianos</strong>) y recibe <strong>12 meses (1 Año completo)</strong>.</li>
+                        <li>Paga $22 dólares (<strong>$60.000 pesos colombianos</strong>) y recibe <strong>24 meses (2 Años completos)</strong>.</li>
                     </ul>
                 </AlertDescription>
             </Alert>
@@ -158,8 +167,8 @@ export default function PaymentsPage() {
                 <div className="text-sm space-y-4">
                     <p>Realiza la transferencia para el plan deseado (con meses duplicados):</p>
                     <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                        <li><strong>Plan Semestral (recibes 12 meses):</strong> $40.000 COP</li>
-                        <li><strong>Plan Anual (recibes 24 meses):</strong> $90.000 COP</li>
+                        <li><strong>Plan 1 Año (con promoción):</strong> $40.000 pesos colombianos</li>
+                        <li><strong>Plan 2 Años (con promoción):</strong> $60.000 pesos colombianos</li>
                     </ul>
                     <p>Envía el dinero al número Nequi:</p>
                     <p className="font-bold text-lg text-center bg-muted p-2 rounded-md">319 545 6391</p>
@@ -191,8 +200,8 @@ export default function PaymentsPage() {
                 <div className="text-sm space-y-4">
                     <p>Realiza la transferencia para el plan deseado (con meses duplicados):</p>
                     <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                        <li><strong>Plan Semestral (recibes 12 meses):</strong> $40.000 COP</li>
-                        <li><strong>Plan Anual (recibes 24 meses):</strong> $90.000 COP</li>
+                        <li><strong>Plan 1 Año (con promoción):</strong> $40.000 pesos colombianos</li>
+                        <li><strong>Plan 2 Años (con promoción):</strong> $60.000 pesos colombianos</li>
                     </ul>
                     <p>Envía el dinero al número Daviplata:</p>
                     <p className="font-bold text-lg text-center bg-muted p-2 rounded-md">319 545 6391</p>
@@ -224,8 +233,8 @@ export default function PaymentsPage() {
                 <div className="text-sm space-y-4">
                     <p>Usa la opción Llave Bre-Be desde tu app bancaria:</p>
                      <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                        <li><strong>Plan Semestral (recibes 12 meses):</strong> $40.000 COP</li>
-                        <li><strong>Plan Anual (recibes 24 meses):</strong> $90.000 COP</li>
+                        <li><strong>Plan 1 Año (con promoción):</strong> $40.000 pesos colombianos</li>
+                        <li><strong>Plan 2 Años (con promoción):</strong> $60.000 pesos colombianos</li>
                     </ul>
                     <p>Número de celular:</p>
                     <p className="font-bold text-lg text-center bg-muted p-2 rounded-md">319 545 6391</p>
@@ -258,8 +267,8 @@ export default function PaymentsPage() {
                         <div className="text-sm space-y-3 max-h-[60vh] overflow-y-auto pr-4">
                             <p>Monto a enviar (recibes el doble de tiempo):</p>
                             <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                                <li><strong>Plan Semestral (recibes 12 meses):</strong> $15 USD</li>
-                                <li><strong>Plan Anual (recibes 24 meses):</strong> $22 USD</li>
+                                <li><strong>Plan 1 Año (con promoción):</strong> $15 dólares</li>
+                                <li><strong>Plan 2 Años (con promoción):</strong> $22 dólares</li>
                             </ul>
                             <p><strong>Datos del destinatario:</strong></p>
                             <ul className="list-disc pl-5 bg-muted p-3 rounded-md">

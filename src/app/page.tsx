@@ -7,7 +7,7 @@ import { ProductDetailDialog } from '@/components/product-detail-dialog';
 import { youtubeVideos, type YouTubeVideo } from '@/lib/youtube-videos';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Download, Sparkles, Gem, ArrowRight, Star, UserCheck, MonitorSmartphone, Zap, Laptop, Layers, BrainCircuit, Scan, PictureInPicture, Play, Info, Mail, MessageCircle, Film, Youtube, Crown, Rocket, Smartphone } from 'lucide-react';
+import { Download, Sparkles, Gem, ArrowRight, Star, UserCheck, MonitorSmartphone, Zap, Laptop, Layers, BrainCircuit, Scan, PictureInPicture, Play, Info, Mail, MessageCircle, Film, Youtube, Crown, Rocket, Smartphone, FileText } from 'lucide-react';
 import { Spinner } from '@/components/ui/spinner';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -23,6 +23,10 @@ import { useAuth } from '@/context/auth-context';
 import { useInscribe } from '@/components/inscribe-context';
 import { IaDemosCarousel } from '@/components/ia-demos-carousel';
 import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
+import {
+  IA_INSTRUCTIONS_PDF_URL,
+  IA_NO_PRO_EDITOR_NOTICE,
+} from '@/lib/ia-curriculum';
 
 const serviceGridItems = [
     { icon: UserCheck, title: "Cursos personalizados", href: "/servicios#cursos-personalizados-anchor" },
@@ -137,30 +141,53 @@ function HomePageContent() {
             <div className="absolute top-0 right-0 p-4 md:p-8 opacity-10 group-hover:scale-110 transition-transform">
                 <Smartphone className="h-32 w-32 md:h-48 md:w-48 text-primary" />
             </div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-                <div className="space-y-3 text-center md:text-left">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8">
+                <div className="space-y-3 text-center lg:text-left">
                     <Badge className="bg-emerald-500 text-black font-black uppercase text-[10px] md:text-xs tracking-widest px-3 py-1">¡CURSO YA DISPONIBLE PARA DESCARGAR!</Badge>
                     <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-tight">MAESTRÍA EN IA: TELÉFONO, TABLET U ORDENADOR</h2>
-                    <p className="text-sm md:text-base text-gray-400 font-medium max-w-xl">Aprende los efectos pro del momento realizando el curso 100% desde tu teléfono, tablet u ordenador. Ya disponible para descargar para miembros PRO.</p>
+                    <div className="rounded-xl border-2 border-emerald-400/50 bg-emerald-500/15 px-4 py-2.5 max-w-xl mx-auto lg:mx-0">
+                      <p className="text-xs sm:text-sm font-black text-emerald-200 leading-snug">
+                        {IA_NO_PRO_EDITOR_NOTICE}
+                      </p>
+                    </div>
+                    <p className="text-sm md:text-base text-gray-300 font-medium max-w-xl">Solo necesitas tu celular, tablet o computador, una cuenta de Google, cualquier editor básico como CapCut o Filmora, y mucha actitud y creatividad.</p>
                 </div>
-                <Button
-                  size="lg"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleInscribe();
-                  }}
-                  className="h-12 md:h-14 w-full md:w-auto px-8 md:px-10 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl shrink-0"
-                >
-                    {isMember ? (
-                      <>
-                        <Download className="mr-2 h-4 w-4 md:h-5 md:w-5" /> Descargar y realizar curso
-                      </>
-                    ) : (
-                      <>
-                        Inscribirse Ahora <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                      </>
-                    )}
-                </Button>
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+                  <Button
+                    size="lg"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleInscribe();
+                    }}
+                    className="h-12 md:h-14 w-full sm:flex-1 lg:w-auto px-7 md:px-9 rounded-xl md:rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs group-hover:bg-primary group-hover:text-white transition-all shadow-xl shrink-0"
+                  >
+                      {isMember ? (
+                        <>
+                          <Download className="mr-2 h-4 w-4 md:h-5 md:w-5" /> Descargar y realizar curso
+                        </>
+                      ) : (
+                        <>
+                          Inscribirse Ahora <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                        </>
+                      )}
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    onClick={(e) => e.stopPropagation()}
+                    className="h-12 w-full sm:flex-1 lg:w-auto px-6 rounded-xl md:rounded-2xl border-emerald-400/50 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-100 font-black uppercase tracking-widest text-[10px] md:text-xs shrink-0"
+                  >
+                    <a
+                      href={IA_INSTRUCTIONS_PDF_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FileText className="mr-2 h-4 w-4 text-emerald-300" />
+                      Instrucciones PDF
+                    </a>
+                  </Button>
+                </div>
             </div>
 
             <div className="relative z-10 mt-8 pt-8 border-t border-white/10">

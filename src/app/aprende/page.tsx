@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { youtubeVideos, type YouTubeVideo } from '@/lib/youtube-videos';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, Play, ArrowRight, ExternalLink, Filter, Download, BrainCircuit, Sparkles, Rocket, Cpu, MonitorPlay, Clock, Globe, Gem, Info, Smartphone } from 'lucide-react';
+import { PlayCircle, Play, ArrowRight, ExternalLink, Filter, Download, BrainCircuit, Sparkles, Rocket, Cpu, MonitorPlay, Clock, Globe, Gem, Info, Smartphone, FileText } from 'lucide-react';
 import Image from 'next/image';
 import {
   Dialog,
@@ -22,6 +22,10 @@ import { useInscribe } from '@/components/inscribe-context';
 import { IaDemosCarousel } from '@/components/ia-demos-carousel';
 import { IaCourseSpotlight } from '@/components/ia-course-spotlight';
 import { cn } from '@/lib/utils';
+import {
+  IA_INSTRUCTIONS_PDF_URL,
+  IA_NO_PRO_EDITOR_NOTICE,
+} from '@/lib/ia-curriculum';
 
 const categories = ['Todas', 'Google AI', 'Adobe Suite', 'CapCut Pro', 'Filmora IA', 'Davinci Resolve'] as const;
 
@@ -94,11 +98,20 @@ export default function AprendePage() {
             Aprende a crear efectos cinematográficos realizando el curso <span className="text-white font-bold">100% con tu teléfono, tablet u ordenador</span>. Ya disponible para descargar.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2">
+          <div className="max-w-2xl mx-auto rounded-2xl border-2 border-emerald-400/50 bg-emerald-500/15 backdrop-blur-md px-4 py-3.5 text-center shadow-xl space-y-1.5">
+            <p className="text-xs sm:text-sm md:text-base font-black text-emerald-200 leading-snug">
+              {IA_NO_PRO_EDITOR_NOTICE}
+            </p>
+            <p className="text-[11px] sm:text-xs text-gray-200 leading-relaxed">
+              Solo necesitas celular, tablet o computador, cuenta de Google, cualquier editor básico como CapCut o Filmora y mucha actitud y creatividad.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4 pt-2">
             <button 
                 onClick={handleInscribe} 
                 className={cn(
-                    "h-14 px-8 md:px-10 rounded-2xl font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:scale-105 transition-all text-white flex items-center justify-center w-full sm:w-auto sm:min-w-[260px]",
+                    "h-14 px-8 md:px-10 rounded-2xl font-black uppercase tracking-widest text-xs md:text-sm shadow-2xl hover:scale-105 transition-all text-white flex items-center justify-center w-full sm:w-auto sm:min-w-[240px]",
                     isMember ? "bg-emerald-600 hover:bg-emerald-700" : "bg-primary hover:bg-primary/90"
                 )}
             >
@@ -114,8 +127,23 @@ export default function AprendePage() {
                   </>
                 )}
             </button>
-            <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs md:text-sm backdrop-blur-md shadow-xl w-full sm:w-auto">
+            <Button asChild variant="outline" size="lg" className="h-14 px-7 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs md:text-sm backdrop-blur-md shadow-xl w-full sm:w-auto">
                 <Link href="/ia#temario">Ver Programa Detallado</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-14 px-6 rounded-2xl border-emerald-400/50 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-100 font-black uppercase tracking-widest text-xs backdrop-blur-md shadow-xl w-full sm:w-auto"
+            >
+              <a
+                href={IA_INSTRUCTIONS_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="mr-2 h-4 w-4 text-emerald-300" />
+                Instrucciones PDF
+              </a>
             </Button>
           </div>
 

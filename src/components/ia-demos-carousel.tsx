@@ -37,6 +37,13 @@ export const IA_DEMO_VIDEOS: IaDemoVideo[] = [
     videoUrl: 'https://media.fredegapro.com/01/ia/ramon.mp4',
   },
   {
+    id: 'tomas-drone-timelapse-ia',
+    title: 'Tomas de drones y timelapse en lugares reales con IA',
+    description: 'Crea tomas aéreas de drones y timelapses en lugares reales a partir de imágenes con IA.',
+    thumbnailUrl: 'https://media.fredegapro.com/01/ia/drone.jpg',
+    videoUrl: 'https://media.fredegapro.com/01/ia/drone.mp4',
+  },
+  {
     id: 'videos-cinematograficos-ia',
     title: 'Videos cinematográficos con IA',
     description: 'Produce escenas con estética de cine y movimientos avanzados con IA.',

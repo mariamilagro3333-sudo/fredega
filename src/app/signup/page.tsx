@@ -17,7 +17,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { signupSchema, type SignupFormData } from '@/types';
 import { useAuth } from '@/context/auth-context';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, FileText } from 'lucide-react';
+import { IA_INSTRUCTIONS_PDF_URL } from '@/lib/ia-curriculum';
 
 
 export default function SignupPage() {
@@ -41,11 +42,22 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <div className="w-full max-w-md p-8 space-y-8 bg-card rounded-lg shadow-lg">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold font-headline">Crear una cuenta</h1>
-          <p className="text-muted-foreground">Únete para acceder a descargas exclusivas</p>
+    <div className="flex items-center justify-center min-h-screen bg-background px-4 py-10">
+      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 bg-card rounded-2xl shadow-lg border border-border">
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl sm:text-3xl font-bold font-headline">Crear una cuenta</h1>
+          <p className="text-sm text-muted-foreground">
+            Al terminar tu registro pasarás inmediatamente a la página de membresía para elegir tu plan.
+          </p>
+          <a
+            href={IA_INSTRUCTIONS_PDF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline pt-1"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            Descargar instrucciones en PDF
+          </a>
         </div>
 
         <Form {...form}>

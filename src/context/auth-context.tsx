@@ -192,10 +192,10 @@ export function AuthProvider({ children, serverSession }: { children: ReactNode,
     
     toast({
         title: '¡Cuenta Creada!',
-        description: 'Has sido registrado correctamente. Revisa tu correo para confirmar tu cuenta. ¡Bienvenido!',
+        description: 'Registro completado. Ahora elige tu membresía para acceder al curso y a todos los recursos.',
     });
     
-    router.push('/');
+    router.push('/membresia');
   };
 
   const logout = async () => {

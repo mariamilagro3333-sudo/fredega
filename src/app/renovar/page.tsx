@@ -90,16 +90,16 @@ export default function RenewPage() {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-4">
-                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white">
+                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white h-auto py-3 whitespace-normal text-center">
                 <Link href={hotmartLinks.sixMonths} target="_blank" rel="noopener noreferrer">
-                    <CreditCard className="mr-2" />
-                    Renovar Suscripción Semestral ($15 USD)
+                    <CreditCard className="mr-2 shrink-0" />
+                    Renovar 6 Meses ($15 dólares · $40.000 pesos colombianos)
                 </Link>
                 </Button>
-                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white">
+                <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700 text-white h-auto py-3 whitespace-normal text-center">
                 <Link href={hotmartLinks.annual} target="_blank" rel="noopener noreferrer">
-                    <CreditCard className="mr-2" />
-                    Renovar Suscripción Anual ($22 USD)
+                    <CreditCard className="mr-2 shrink-0" />
+                    Renovar 1 Año ($22 dólares · $60.000 pesos colombianos)
                 </Link>
                 </Button>
             </div>
@@ -120,8 +120,8 @@ export default function RenewPage() {
                         ¡Hey! Si renuevas por Nequi, Daviplata, Llave Bre-Be o Western Union, ¡se te duplican los meses de membresía!
                     </p>
                     <ul className="list-disc pl-5 mt-2 space-y-1">
-                        <li>Paga $15 USD (<strong>$40.000 COP</strong>) y recibe <strong>12 meses (1 Año completo)</strong>.</li>
-                        <li>Paga $22 USD (<strong>$90.000 COP</strong>) y recibe <strong>24 meses (2 Años completos)</strong>.</li>
+                        <li>Paga $15 dólares (<strong>$40.000 pesos colombianos</strong>) y recibe <strong>12 meses (1 Año completo)</strong>.</li>
+                        <li>Paga $22 dólares (<strong>$60.000 pesos colombianos</strong>) y recibe <strong>24 meses (2 Años completos)</strong>.</li>
                     </ul>
                 </AlertDescription>
             </Alert>
@@ -156,8 +156,8 @@ export default function RenewPage() {
                 <div className="text-sm space-y-4">
                     <p>Realiza la transferencia para el plan deseado (con meses duplicados):</p>
                     <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                        <li><strong>Plan Semestral (recibes 12 meses):</strong> $40.000 COP</li>
-                        <li><strong>Plan Anual (recibes 24 meses):</strong> $90.000 COP</li>
+                        <li><strong>Plan 1 Año (con promoción):</strong> $40.000 pesos colombianos</li>
+                        <li><strong>Plan 2 Años (con promoción):</strong> $60.000 pesos colombianos</li>
                     </ul>
                     <p>Envía el dinero al número Nequi:</p>
                     <p className="font-bold text-lg text-center bg-muted p-2 rounded-md">319 545 6391</p>
@@ -189,8 +189,8 @@ export default function RenewPage() {
                 <div className="text-sm space-y-4">
                     <p>Realiza la transferencia para el plan deseado (con meses duplicados):</p>
                     <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                        <li><strong>Plan Semestral (recibes 12 meses):</strong> $40.000 COP</li>
-                        <li><strong>Plan Anual (recibes 24 meses):</strong> $90.000 COP</li>
+                        <li><strong>Plan 1 Año (con promoción):</strong> $40.000 pesos colombianos</li>
+                        <li><strong>Plan 2 Años (con promoción):</strong> $60.000 pesos colombianos</li>
                     </ul>
                     <p>Envía el dinero al número Daviplata:</p>
                     <p className="font-bold text-lg text-center bg-muted p-2 rounded-md">319 545 6391</p>
@@ -222,8 +222,8 @@ export default function RenewPage() {
                 <div className="text-sm space-y-4">
                     <p>Realiza la transferencia para el plan deseado (con meses duplicados):</p>
                      <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                        <li><strong>Plan Semestral (recibes 12 meses):</strong> $40.000 COP</li>
-                        <li><strong>Plan Anual (recibes 24 meses):</strong> $90.000 COP</li>
+                        <li><strong>Plan 1 Año (con promoción):</strong> $40.000 pesos colombianos</li>
+                        <li><strong>Plan 2 Años (con promoción):</strong> $60.000 pesos colombianos</li>
                     </ul>
                     <p>Envía el dinero al número de celular:</p>
                     <p className="font-bold text-lg text-center bg-muted p-2 rounded-md">319 545 6391</p>
@@ -256,8 +256,8 @@ export default function RenewPage() {
                         <div className="text-sm space-y-3 max-h-[60vh] overflow-y-auto pr-4">
                             <p>Selecciona el monto según el plan (¡con meses duplicados!):</p>
                             <ul className="list-disc pl-5 bg-muted p-3 rounded-md">
-                                <li><strong>Plan Semestral (recibes 12 meses):</strong> Enviar $15 USD</li>
-                                <li><strong>Plan Anual (recibes 24 meses):</strong> Enviar $22 USD</li>
+                                <li><strong>Plan 1 Año (con promoción):</strong> Enviar $15 dólares</li>
+                                <li><strong>Plan 2 Años (con promoción):</strong> Enviar $22 dólares</li>
                             </ul>
                             <p><strong>Datos del destinatario:</strong></p>
                             <ul className="list-disc pl-5 bg-muted p-3 rounded-md">

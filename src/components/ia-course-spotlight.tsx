@@ -6,16 +6,19 @@ import {
   ArrowRight,
   BrainCircuit,
   Download,
-  Film,
+  FileText,
   Play,
   Smartphone,
-  Sparkles,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { useInscribe } from '@/components/inscribe-context';
 import { IA_DEMO_VIDEOS } from '@/components/ia-demos-carousel';
+import {
+  IA_INSTRUCTIONS_PDF_URL,
+  IA_NO_PRO_EDITOR_NOTICE,
+} from '@/lib/ia-curriculum';
 
 interface IaCourseSpotlightProps {
   variant?: 'hero-strip' | 'sidebar' | 'compact';
@@ -40,26 +43,28 @@ export function IaCourseSpotlight({
     return (
       <div
         className={cn(
-          'rounded-2xl border border-primary/40 bg-gradient-to-r from-[#07142b] via-[#0b1f42] to-[#07142b] p-4 sm:p-5 text-white shadow-xl',
+          'rounded-2xl border border-primary/40 bg-gradient-to-r from-[#07142b] via-[#0b1f42] to-[#07142b] p-4 sm:p-5 text-white shadow-xl space-y-3',
           className
         )}
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
-          <div className="space-y-1 text-left">
+          <div className="space-y-1.5 text-left">
             <div className="flex flex-wrap items-center gap-2">
               <Badge className="bg-emerald-500 text-black font-black uppercase text-[9px] tracking-widest px-2 py-0.5">
                 CURSO DE IA · DISPONIBLE
               </Badge>
               <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
-                Celular, Tablet o PC · CapCut / Filmora
+                Celular, Tablet o PC · Cuenta de Google · CapCut / Filmora
               </span>
             </div>
             <h4 className="text-sm sm:text-base font-black uppercase tracking-tight text-white leading-tight">
               Maestría en Inteligencia Artificial y Edición PRO
             </h4>
-            <p className="text-xs text-gray-300 leading-snug">
-              Aprende VFX, motion graphics, publicidad y videos cinematográficos con IA desde cualquier editor básico.
-            </p>
+            <div className="rounded-xl border border-emerald-400/50 bg-emerald-500/15 px-3 py-1.5">
+              <p className="text-[11px] font-black text-emerald-200 leading-snug">
+                {IA_NO_PRO_EDITOR_NOTICE}
+              </p>
+            </div>
           </div>
 
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 shrink-0">
@@ -93,7 +98,22 @@ export function IaCourseSpotlight({
               onClick={onNavigate}
               className="h-10 px-3.5 rounded-xl border-white/20 bg-white/5 hover:bg-white/10 text-white font-black uppercase tracking-wider text-[10px] flex-1 sm:flex-none"
             >
-              <Link href="/ia">Ver demos y temario</Link>
+              <Link href="/ia">Ver demos</Link>
+            </Button>
+            <Button
+              asChild
+              size="sm"
+              variant="outline"
+              className="h-10 px-3 rounded-xl border-emerald-400/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 font-black uppercase tracking-wider text-[10px] flex-1 sm:flex-none"
+            >
+              <a
+                href={IA_INSTRUCTIONS_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="mr-1 h-3.5 w-3.5" />
+                PDF
+              </a>
             </Button>
           </div>
         </div>
@@ -109,15 +129,20 @@ export function IaCourseSpotlight({
           className
         )}
       >
-        <div className="space-y-2 text-left">
+        <div className="space-y-2.5 text-left">
           <Badge className="bg-emerald-500 text-black font-black uppercase text-[9px] tracking-widest px-2.5 py-0.5">
             ¡CURSO PRINCIPAL · YA DISPONIBLE!
           </Badge>
           <h3 className="text-base sm:text-lg font-black uppercase tracking-tight leading-tight text-white">
             Maestría en <span className="text-primary">IA y Edición PRO</span>
           </h3>
+          <div className="rounded-xl border border-emerald-400/50 bg-emerald-500/15 px-3 py-2">
+            <p className="text-[11px] font-black text-emerald-200 leading-snug">
+              {IA_NO_PRO_EDITOR_NOTICE}
+            </p>
+          </div>
           <p className="text-xs text-gray-300 leading-relaxed">
-            Solo necesitas celular, tablet o PC, cuenta de Google y cualquier editor básico (CapCut, Filmora u otro).
+            Solo necesitas celular, tablet o PC, cuenta de Google, cualquier editor básico (CapCut, Filmora u otro) y actitud.
           </p>
         </div>
 
@@ -183,6 +208,20 @@ export function IaCourseSpotlight({
           >
             <Link href="/ia#temario">Ver Temario y Demos</Link>
           </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="w-full h-10 rounded-xl border-emerald-400/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 font-black uppercase tracking-widest text-[10px]"
+          >
+            <a
+              href={IA_INSTRUCTIONS_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FileText className="mr-1.5 h-3.5 w-3.5" />
+              Instrucciones PDF
+            </a>
+          </Button>
         </div>
       </div>
     );
@@ -225,9 +264,15 @@ export function IaCourseSpotlight({
             MAESTRÍA EN <span className="text-primary italic">IA Y EDICIÓN PRO</span>
           </h2>
 
+          <div className="rounded-2xl border-2 border-emerald-400/50 bg-emerald-500/15 px-4 py-2.5 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-xs sm:text-sm font-black text-emerald-200 leading-snug">
+              {IA_NO_PRO_EDITOR_NOTICE}
+            </p>
+          </div>
+
           <p className="text-xs sm:text-sm md:text-base text-gray-300 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Solo necesitas tu dispositivo, una cuenta de Google y cualquier editor básico como{' '}
-            <span className="text-white font-bold">CapCut, Filmora</span> o cualquier app de edición de celular o computador.
+            Solo necesitas tu dispositivo (celular, tablet o computador), una cuenta de Google, cualquier editor básico como{' '}
+            <span className="text-white font-bold">CapCut, Filmora</span> o cualquier app de edición, y mucha actitud y creatividad.
           </p>
 
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
@@ -236,7 +281,7 @@ export function IaCourseSpotlight({
               onClick={handlePrimaryClick}
               size="lg"
               className={cn(
-                'h-12 px-6 md:px-8 rounded-xl font-black uppercase tracking-widest text-[11px] text-white shadow-xl hover:scale-[1.02] transition-all w-full sm:w-auto',
+                'h-12 px-6 md:px-7 rounded-xl font-black uppercase tracking-widest text-[11px] text-white shadow-xl hover:scale-[1.02] transition-all w-full sm:w-auto',
                 isMember
                   ? 'bg-emerald-600 hover:bg-emerald-700'
                   : 'bg-primary hover:bg-primary/90'
@@ -259,12 +304,27 @@ export function IaCourseSpotlight({
               size="lg"
               variant="outline"
               onClick={onNavigate}
-              className="h-12 px-6 rounded-xl border-white/20 bg-white/5 hover:bg-white/10 text-white font-black uppercase tracking-widest text-[11px] w-full sm:w-auto"
+              className="h-12 px-5 rounded-xl border-white/20 bg-white/5 hover:bg-white/10 text-white font-black uppercase tracking-widest text-[11px] w-full sm:w-auto"
             >
               <Link href="/ia">
                 <BrainCircuit className="mr-2 h-4 w-4 text-primary" />
                 Ver demos y temario
               </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-12 px-5 rounded-xl border-emerald-400/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 font-black uppercase tracking-widest text-[11px] w-full sm:w-auto"
+            >
+              <a
+                href={IA_INSTRUCTIONS_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="mr-2 h-4 w-4 text-emerald-300" />
+                Instrucciones PDF
+              </a>
             </Button>
           </div>
         </div>

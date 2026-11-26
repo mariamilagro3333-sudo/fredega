@@ -2,11 +2,15 @@
 
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { Rocket, Sparkles, Crown, Smartphone, Tablet, Laptop, ArrowRight, Download } from 'lucide-react';
+import { Rocket, Sparkles, Crown, Smartphone, Tablet, Laptop, ArrowRight, Download, FileText } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { useInscribe } from './inscribe-context';
 import { IaDemosCarousel } from './ia-demos-carousel';
 import { cn } from '@/lib/utils';
+import {
+  IA_INSTRUCTIONS_PDF_URL,
+  IA_NO_PRO_EDITOR_NOTICE,
+} from '@/lib/ia-curriculum';
 
 export function Hero() {
   const { handleInscribe, isMember } = useInscribe();
@@ -46,12 +50,22 @@ export function Hero() {
           Crea efectos de cine y animaciones 4K. Realiza el curso <span className="text-white font-bold underline decoration-primary underline-offset-4">100% con tu teléfono, tablet u ordenador</span>.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2 md:pt-3">
+        {/* CUADRITO DESTACADO: REQUISITOS Y PROGRAMAS */}
+        <div className="max-w-2xl mx-auto rounded-2xl border-2 border-emerald-400/50 bg-emerald-500/15 backdrop-blur-md px-4 py-3.5 text-center shadow-xl space-y-1.5">
+          <p className="text-xs sm:text-sm md:text-base font-black text-emerald-200 leading-snug">
+            {IA_NO_PRO_EDITOR_NOTICE}
+          </p>
+          <p className="text-[11px] sm:text-xs text-gray-200 leading-relaxed">
+            Solo necesitas: <strong className="text-white">celular, tablet o computador</strong>, una <strong className="text-white">cuenta de Google</strong>, cualquier editor básico (<strong className="text-white">CapCut, Filmora</strong> o cualquier editor de celular o PC) y mucha actitud y creatividad.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4 pt-1 md:pt-2">
           <Button 
             onClick={handleInscribe}
             size="lg" 
             className={cn(
-              "h-14 w-full sm:w-auto px-8 md:px-10 rounded-2xl text-white font-black uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all",
+              "h-14 w-full sm:w-auto px-7 md:px-9 rounded-2xl text-white font-black uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all",
               isMember
                 ? "bg-emerald-600 hover:bg-emerald-700 shadow-[0_20px_50px_rgba(16,185,129,0.3)]"
                 : "bg-primary hover:bg-primary/90 shadow-[0_20px_50px_rgba(30,144,255,0.3)]"
@@ -69,8 +83,23 @@ export function Hero() {
               </>
             )}
           </Button>
-          <Button asChild size="lg" variant="outline" className="h-14 w-full sm:w-auto px-7 md:px-8 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs backdrop-blur-md">
+          <Button asChild size="lg" variant="outline" className="h-14 w-full sm:w-auto px-6 md:px-7 rounded-2xl border-white/20 text-white hover:bg-white/10 font-black uppercase tracking-widest text-xs backdrop-blur-md">
             <Link href="/ia#temario">Ver Temario del Curso</Link>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="h-14 w-full sm:w-auto px-6 rounded-2xl border-emerald-400/50 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-100 font-black uppercase tracking-widest text-xs backdrop-blur-md shadow-xl"
+          >
+            <a
+              href={IA_INSTRUCTIONS_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FileText className="mr-2 h-4 w-4 text-emerald-300" />
+              Descargar Instrucciones PDF
+            </a>
           </Button>
         </div>
 
