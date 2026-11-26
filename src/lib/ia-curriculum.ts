@@ -170,7 +170,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
     lessons: [
       {
         id: 'm3-l1',
-        title: '1. Creación y definición del personaje en Google Flow.',
+        title: '1. Creación y definición del personaje con IA.',
       },
       {
         id: 'm3-l2',
@@ -179,7 +179,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       {
         id: 'm3-l3',
         title:
-          '3. Generación de los videos/escenas animadas en Google Flow (y apoyos de voz/música con ElevenLabs y Google Music).',
+          '3. Generación de los videos y escenas animadas con IA (incluyendo apoyos de voz y música con IA).',
       },
       {
         id: 'm3-l4',
@@ -200,11 +200,11 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       },
       {
         id: 'm4-l2',
-        title: '2. Generación de efectos visuales avanzados sobre video (V2V) en Google Flow.',
+        title: '2. Generación de efectos visuales avanzados sobre video (V2V) con IA.',
       },
       {
         id: 'm4-l3',
-        title: '3. Refuerzo sonoro y ajustes de audio/voz (ElevenLabs / Google Music).',
+        title: '3. Refuerzo sonoro, musicalización y ajustes de audio y voz con IA.',
       },
       {
         id: 'm4-l4',
@@ -225,7 +225,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       },
       {
         id: 'm5-l2',
-        title: '2. Construcción de escenas y combinación de videos en Google Flow.',
+        title: '2. Construcción de escenas y combinación de videos con IA.',
       },
       {
         id: 'm5-l3',
@@ -246,7 +246,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       },
       {
         id: 'm6-l2',
-        title: '2. Generación de transiciones con IA en Google Flow.',
+        title: '2. Generación de transiciones con IA.',
       },
       {
         id: 'm6-l3',
@@ -267,7 +267,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       },
       {
         id: 'm7-l2',
-        title: '2. Cambio de fondo y aplicación de Video a Video (V2V) en Google Flow.',
+        title: '2. Cambio de fondo y aplicación de Video a Video (V2V) con IA.',
       },
       {
         id: 'm7-l3',
@@ -276,7 +276,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       {
         id: 'm7-l4',
         title:
-          '4. Voz comercial (creación, clonación o cambio de voz con ElevenLabs) y música con Google Music.',
+          '4. Voz comercial (creación, clonación o cambio de voz con IA) y música generada con IA.',
       },
       {
         id: 'm7-l5',
@@ -301,7 +301,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       },
       {
         id: 'm8-l2',
-        title: '2. Aplicación de filtros con IA y generación de planos en Google Flow.',
+        title: '2. Aplicación de filtros y generación de planos con IA.',
       },
       {
         id: 'm8-l3',
@@ -332,7 +332,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       {
         id: 'm9-l4',
         title:
-          '4. Voces o narración con ElevenLabs y banda sonora cinematográfica con Google Music.',
+          '4. Voces o narración con IA y banda sonora cinematográfica generada con IA.',
       },
       {
         id: 'm9-l5',
@@ -349,16 +349,16 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
     lessons: [
       {
         id: 'm10-l1',
-        title: '1. Extender videos y dar continuidad a planos en Google Flow.',
+        title: '1. Extender videos y dar continuidad a planos con IA.',
       },
       {
         id: 'm10-l2',
-        title: '2. Cambiar audios y generar música/ambientación con Google Music.',
+        title: '2. Cambiar audios y generar música y ambientación con IA.',
       },
       {
         id: 'm10-l3',
         title:
-          '3. Cambiar diálogos y voces (creación, clonación o cambio de voz) con ElevenLabs.',
+          '3. Cambiar diálogos y voces (creación, clonación o cambio de voz) con IA.',
       },
       {
         id: 'm10-l4',
@@ -408,7 +408,7 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
       },
       {
         id: 'm12-l2',
-        title: '2. Generación y animación de secuencias en Google Flow.',
+        title: '2. Generación y animación de secuencias con IA.',
       },
       {
         id: 'm12-l3',
