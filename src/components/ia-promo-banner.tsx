@@ -34,6 +34,7 @@ import {
   IA_COURSE_REQUIREMENTS,
   IA_INSTRUCTIONS_PDF_URL,
   IA_MODULE_1_DOWNLOAD_URL,
+  IA_MODULE_2_DOWNLOAD_URL,
   IA_NO_PRO_EDITOR_NOTICE,
   IA_WHATSAPP_CHANNEL_URL,
 } from '@/lib/ia-curriculum';
@@ -292,7 +293,7 @@ function IaPromoBannerContent({ className }: { className?: string }) {
                     className={cn(
                       'p-4 sm:p-5 rounded-2xl border flex flex-col gap-3 transition-colors',
                       module.isAvailableNow
-                        ? 'bg-emerald-500/[0.06] border-emerald-500/40 md:col-span-2'
+                        ? 'bg-emerald-500/[0.06] border-emerald-500/40'
                         : 'bg-white/5 border-white/10 hover:bg-white/10'
                     )}
                   >
@@ -373,12 +374,12 @@ function IaPromoBannerContent({ className }: { className?: string }) {
                           className="h-9 px-3.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-black font-black uppercase text-[10px]"
                         >
                           <a
-                            href={IA_MODULE_1_DOWNLOAD_URL}
+                            href={module.downloadUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
                             <Download className="mr-1.5 h-3.5 w-3.5" />
-                            Descargar Módulo 01
+                            Descargar {module.numberLabel}
                           </a>
                         </Button>
                         <Button
@@ -410,7 +411,7 @@ function IaPromoBannerContent({ className }: { className?: string }) {
                 </p>
                 <h5 className="text-base md:text-xl font-black text-white uppercase tracking-tight">
                   {isMember
-                    ? 'DESCARGA EL MÓDULO 01 Y ÚNETE AL CANAL DE WHATSAPP'
+                    ? 'DESCARGA LOS MÓDULOS 01 Y 02 Y ÚNETE AL CANAL DE WHATSAPP'
                     : 'ACTIVA TU MEMBRESÍA PRO PARA DESCARGAR EL CURSO'}
                 </h5>
                 <p className="text-gray-400 text-xs md:text-sm font-medium">
@@ -418,7 +419,7 @@ function IaPromoBannerContent({ className }: { className?: string }) {
                 </p>
               </div>
               {isMember ? (
-                <div className="flex flex-col sm:flex-row gap-2.5 w-full md:w-auto">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 w-full md:w-auto">
                   <Button
                     asChild
                     size="lg"
@@ -430,7 +431,21 @@ function IaPromoBannerContent({ className }: { className?: string }) {
                       rel="noopener noreferrer"
                     >
                       <Download className="mr-2 h-4 w-4 shrink-0" />
-                      Descargar Módulo 01
+                      Módulo 01
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-emerald-500 hover:bg-emerald-600 text-black font-black uppercase px-5 h-12 rounded-xl shadow-xl text-[10px] md:text-xs whitespace-normal"
+                  >
+                    <a
+                      href={IA_MODULE_2_DOWNLOAD_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Download className="mr-2 h-4 w-4 shrink-0" />
+                      Módulo 02
                     </a>
                   </Button>
                   <Button

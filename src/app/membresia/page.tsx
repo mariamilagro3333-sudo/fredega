@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: '¿El curso de Inteligencia Artificial tiene costo adicional?',
-    a: 'No. Con tu Membresía PRO el curso completo de IA está incluido sin costo adicional y el Módulo 01 ya está listo para descargar.',
+    a: 'No. Con tu Membresía PRO el curso completo de IA está incluido sin costo adicional y los Módulos 01 y 02 ya están listos para descargar.',
   },
   {
     q: '¿Qué correo debo usar si pago por Hotmart?',

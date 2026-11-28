@@ -1,6 +1,9 @@
 export const IA_MODULE_1_DOWNLOAD_URL =
   'https://drive.google.com/drive/folders/1zl_-itLGGWEpkMLmzjZJLA3tnGkv8EFM';
 
+export const IA_MODULE_2_DOWNLOAD_URL =
+  'https://drive.google.com/drive/folders/18MljbRUY_n8nRRPqY56r3_OaQeXbsvJj';
+
 export const IA_WHATSAPP_CHANNEL_URL =
   'https://whatsapp.com/channel/0029Vb9ptJvEAKWLbEBGNN10';
 
@@ -139,23 +142,19 @@ export const IA_CURRICULUM_MODULES: IaModule[] = [
   {
     id: 'modulo-02',
     numberLabel: 'MÓDULO 02',
-    title: 'Módulo 02: Introducción con el Agente IA — Texto a video con logo de marca',
-    isAvailableNow: false,
-    memberReleaseDate: 'Viernes 27 de noviembre',
-    memberReleaseNote:
-      'Fecha de publicación: Viernes 27 de noviembre. Se notificará por el canal de WhatsApp en cuanto esté disponible para descargar.',
+    title: 'Módulo 02: El Agente IA y generar de texto a video',
+    isAvailableNow: true,
+    downloadUrl: IA_MODULE_2_DOWNLOAD_URL,
     lessons: [
       {
-        id: 'm2-l1',
-        title: '1. Contextualización del agente IA desde cero para el proyecto.',
+        id: 'm2-l6',
+        title: '6. Estructura para usar el agente IA.',
+        downloadUrl: IA_MODULE_2_DOWNLOAD_URL,
       },
       {
-        id: 'm2-l2',
-        title: '2. Generación de video de texto a video integrando el logo como marca.',
-      },
-      {
-        id: 'm2-l3',
-        title: '3. Edición y cierre de la pieza en el editor de video.',
+        id: 'm2-l7',
+        title: '7. De texto a video e imágenes de referencia.',
+        downloadUrl: IA_MODULE_2_DOWNLOAD_URL,
       },
     ],
   },

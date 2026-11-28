@@ -29,6 +29,7 @@ import {
   IA_COURSE_REQUIREMENTS,
   IA_INSTRUCTIONS_PDF_URL,
   IA_MODULE_1_DOWNLOAD_URL,
+  IA_MODULE_2_DOWNLOAD_URL,
   IA_NO_PRO_EDITOR_NOTICE,
   IA_WHATSAPP_CHANNEL_URL,
 } from '@/lib/ia-curriculum';
@@ -71,11 +72,11 @@ export default function IACoursePromoPage() {
                   <span className="text-emerald-300 font-bold">la IA se actualiza muy de seguido</span>. Por ese canal también avisaremos la publicación y las fechas de cada nuevo módulo y lección.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 w-full lg:w-auto shrink-0">
                 <Button
                   asChild
                   size="lg"
-                  className="h-12 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-black uppercase tracking-wider text-[11px] shadow-xl w-full sm:w-auto"
+                  className="h-12 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-black uppercase tracking-wider text-[11px] shadow-xl w-full sm:w-auto"
                 >
                   <a
                     href={IA_WHATSAPP_CHANNEL_URL}
@@ -90,7 +91,7 @@ export default function IACoursePromoPage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="h-12 px-6 rounded-xl border-primary/50 bg-primary/15 hover:bg-primary/25 text-white font-black uppercase tracking-wider text-[11px] w-full sm:w-auto"
+                  className="h-12 px-5 rounded-xl border-primary/50 bg-primary/15 hover:bg-primary/25 text-white font-black uppercase tracking-wider text-[11px] w-full sm:w-auto"
                 >
                   <a
                     href={IA_MODULE_1_DOWNLOAD_URL}
@@ -98,7 +99,22 @@ export default function IACoursePromoPage() {
                     rel="noopener noreferrer"
                   >
                     <Download className="mr-2 h-4 w-4 text-primary" />
-                    Descargar Módulo 01
+                    Módulo 01
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-12 px-5 rounded-xl border-primary/50 bg-primary/15 hover:bg-primary/25 text-white font-black uppercase tracking-wider text-[11px] w-full sm:w-auto"
+                >
+                  <a
+                    href={IA_MODULE_2_DOWNLOAD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download className="mr-2 h-4 w-4 text-primary" />
+                    Módulo 02
                   </a>
                 </Button>
               </div>
@@ -113,7 +129,7 @@ export default function IACoursePromoPage() {
                 className={cn(
                   'rounded-2xl md:rounded-3xl overflow-hidden flex flex-col transition-all',
                   module.isAvailableNow
-                    ? 'bg-emerald-500/[0.06] border-2 border-emerald-500/45 shadow-[0_0_40px_rgba(16,185,129,0.12)] lg:col-span-2'
+                    ? 'bg-emerald-500/[0.06] border-2 border-emerald-500/45 shadow-[0_0_40px_rgba(16,185,129,0.12)]'
                     : 'bg-white/[0.04] border border-white/10 hover:bg-white/[0.06]'
                 )}
               >
@@ -139,7 +155,7 @@ export default function IACoursePromoPage() {
                     {module.title}
                   </CardTitle>
 
-                  {/* Botones de descarga en Módulo 01 */}
+                  {/* Botones de descarga en módulos disponibles */}
                   {module.isAvailableNow && module.downloadUrl && (
                     <div className="flex flex-wrap gap-2.5 pt-1">
                       <Button
@@ -153,7 +169,7 @@ export default function IACoursePromoPage() {
                           rel="noopener noreferrer"
                         >
                           <Download className="mr-1.5 h-3.5 w-3.5" />
-                          Descargar Módulo 01 Completo
+                          Descargar {module.numberLabel} Completo
                         </a>
                       </Button>
                       <Button
@@ -408,7 +424,7 @@ export default function IACoursePromoPage() {
                 className={cn(
                   'rounded-2xl md:rounded-3xl overflow-hidden flex flex-col transition-all',
                   module.isAvailableNow
-                    ? 'bg-emerald-500/[0.06] border-2 border-emerald-500/45 shadow-[0_0_40px_rgba(16,185,129,0.12)] lg:col-span-2'
+                    ? 'bg-emerald-500/[0.06] border-2 border-emerald-500/45 shadow-[0_0_40px_rgba(16,185,129,0.12)]'
                     : 'bg-white/[0.04] border border-white/10 hover:bg-white/[0.06]'
                 )}
               >
